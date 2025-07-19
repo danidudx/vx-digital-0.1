@@ -21,7 +21,7 @@ export async function sendContactEmail(formData) {
 
   const mailOptions = {
     from: "system@visionexdigital.xyz",
-    to: "system@visionexdigital.xyz",
+    to: "projectfiles201@gmail.com",
     subject: `New Contact Form Submission from ${name}`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
