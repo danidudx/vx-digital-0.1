@@ -73,7 +73,8 @@ const FloatingNavbar = () => {
         </div>
 
         {/* Desktop Book Appointment Button */}
-        <button
+        <a
+          href="/booking"
           className="hidden sm:flex items-center justify-center gap-2 hover:opacity-90 transition-opacity duration-200 px-3 lg:px-4 flex-shrink-0"
           style={{
             minWidth: "160px",
@@ -109,7 +110,7 @@ const FloatingNavbar = () => {
               strokeLinejoin="round"
             />
           </svg>
-        </button>
+        </a>
 
         {/* Mobile Menu Button */}
         <button
@@ -198,7 +199,8 @@ const FloatingNavbar = () => {
 
             {/* Mobile Book Appointment Button */}
             <div className="pt-2 border-t border-white/10">
-              <button
+              <a
+                href="/booking"
                 className="w-full flex items-center justify-center gap-2 hover:opacity-90 transition-opacity duration-200 px-4 py-3"
                 style={{
                   background: "#FFFFFF",
@@ -226,7 +228,7 @@ const FloatingNavbar = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </button>
+              </a>
             </div>
           </div>
         </div>

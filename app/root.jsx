@@ -6,8 +6,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-
 import "./app.css";
+import FloatingNavbar from "./components/layout/FloatingNavbar";
 
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -41,7 +41,15 @@ export function Layout({ children }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <>
+      {/* FloatingNavBar will appear on all pages */}
+      <FloatingNavbar />
+
+      {/* Your page content will render here */}
+      <Outlet />
+    </>
+  );
 }
 
 export function ErrorBoundary({ error }) {
