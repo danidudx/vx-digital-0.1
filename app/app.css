@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./tailwind.css";
 
 @theme {
   --font-sans: "Gilroy-Medium", "Inter", ui-sans-serif, system-ui, sans-serif,
@@ -7,28 +8,28 @@
 
 @font-face {
   font-family: "Gilroy-Bold";
-  src: url("/public/fonts/Gilroy-Bold.ttf") format("truetype");
+  src: url("/fonts/Gilroy-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Gilroy-Medium";
-  src: url("/public/fonts/Gilroy-Medium.ttf") format("truetype");
+  src: url("/fonts/Gilroy-Medium.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Gilroy-SemiBold";
-  src: url("/public/fonts/Gilroy-SemiBold.ttf") format("truetype");
+  src: url("/fonts/Gilroy-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Gilroy-ExtraBold";
-  src: url("/public/fonts/Gilroy-ExtraBold.ttf") format("truetype");
+  src: url("/fonts/Gilroy-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
 }
