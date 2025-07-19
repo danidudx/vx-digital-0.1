@@ -1,12 +1,7 @@
-import { Welcome } from "../welcome/welcome";
+import Home from "../components/Home/index";
 
-export function meta({}) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
+const HomePage = () => {
+  return <Home />;
+};
 
-export default function Home() {
-  return <Welcome />;
-}
+export default HomePage;
