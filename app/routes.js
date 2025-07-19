@@ -5,4 +5,5 @@ export default [
   route("about", "routes/About.jsx"),
   route("booking", "routes/BookAnAppointment.jsx"),
   route("our-effort", "routes/OurEfforts.jsx"),
+  route("api/contact", "routes/api.contact.js"),
 ];

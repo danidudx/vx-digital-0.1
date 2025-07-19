@@ -1,4 +1,71 @@
+import React, { useState } from "react";
+
 const ScheduleAppointmentSection = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    datetime: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: "success",
+          message:
+            "Thank you! Your appointment request has been sent successfully.",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+          datetime: "",
+        });
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: result.error || "Something went wrong. Please try again.",
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: "Network error. Please check your connection and try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const isFormValid = formData.name && formData.email && formData.datetime;
+
   return (
     <div
       className="relative py-16 md:py-20 lg:py-24"
@@ -31,7 +98,14 @@ const ScheduleAppointmentSection = () => {
 
             {/* CTA Button */}
             <div>
-              <button className="inline-flex items-center gap-2 bg-white text-black font-gilroy-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition-colors">
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("appointment-form")
+                    .scrollIntoView({ behavior: "smooth" })
+                }
+                className="inline-flex items-center gap-2 bg-white text-black font-gilroy-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition-colors"
+              >
                 Book an appointment
                 <svg
                   width="16"
@@ -65,6 +139,7 @@ const ScheduleAppointmentSection = () => {
           <div className="relative">
             {/* Form Container */}
             <div
+              id="appointment-form"
               className="relative p-6"
               style={{
                 width: "100%",
@@ -90,6 +165,19 @@ const ScheduleAppointmentSection = () => {
                 Provide the following details to contact us
               </h3>
 
+              {/* Status Messages */}
+              {submitStatus && (
+                <div
+                  className={`mb-4 p-3 rounded-lg ${
+                    submitStatus.type === "success"
+                      ? "bg-green-900/20 border border-green-500/30 text-green-400"
+                      : "bg-red-900/20 border border-red-500/30 text-red-400"
+                  }`}
+                >
+                  {submitStatus.message}
+                </div>
+              )}
+
               {/* Form Fields */}
               <div className="space-y-4">
                 {/* Name Field */}
@@ -105,12 +193,15 @@ const ScheduleAppointmentSection = () => {
                 >
                   <input
                     type="text"
-                    placeholder="Name"
-                    className="w-full h-full bg-transparent border-none outline-none font-gilroy-medium"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Name *"
+                    required
+                    className="w-full h-full bg-transparent border-none outline-none font-gilroy-medium text-white placeholder-gray-500 focus:placeholder-gray-400"
                     style={{
                       fontSize: "16px",
                       lineHeight: "20px",
-                      color: "rgba(240, 240, 240, 0.3)",
                       paddingLeft: "18px",
                       paddingRight: "18px",
                     }}
@@ -130,12 +221,15 @@ const ScheduleAppointmentSection = () => {
                 >
                   <input
                     type="email"
-                    placeholder="Email Address"
-                    className="w-full h-full bg-transparent border-none outline-none font-gilroy-medium"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Email Address *"
+                    required
+                    className="w-full h-full bg-transparent border-none outline-none font-gilroy-medium text-white placeholder-gray-500 focus:placeholder-gray-400"
                     style={{
                       fontSize: "16px",
                       lineHeight: "20px",
-                      color: "rgba(240, 240, 240, 0.3)",
                       paddingLeft: "18px",
                       paddingRight: "18px",
                     }}
@@ -155,12 +249,14 @@ const ScheduleAppointmentSection = () => {
                 >
                   <input
                     type="text"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
                     placeholder="Company Name"
-                    className="w-full h-full bg-transparent border-none outline-none font-gilroy-medium"
+                    className="w-full h-full bg-transparent border-none outline-none font-gilroy-medium text-white placeholder-gray-500 focus:placeholder-gray-400"
                     style={{
                       fontSize: "16px",
                       lineHeight: "20px",
-                      color: "rgba(240, 240, 240, 0.3)",
                       paddingLeft: "18px",
                       paddingRight: "18px",
                     }}
@@ -180,12 +276,14 @@ const ScheduleAppointmentSection = () => {
                 >
                   <input
                     type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     placeholder="Phone Number"
-                    className="w-full h-full bg-transparent border-none outline-none font-gilroy-medium"
+                    className="w-full h-full bg-transparent border-none outline-none font-gilroy-medium text-white placeholder-gray-500 focus:placeholder-gray-400"
                     style={{
                       fontSize: "16px",
                       lineHeight: "20px",
-                      color: "rgba(240, 240, 240, 0.3)",
                       paddingLeft: "18px",
                       paddingRight: "18px",
                     }}
@@ -204,15 +302,19 @@ const ScheduleAppointmentSection = () => {
                   }}
                 >
                   <input
-                    type="text"
-                    placeholder="Select Date and Time"
-                    className="w-full h-full bg-transparent border-none outline-none font-gilroy-medium"
+                    type="datetime-local"
+                    name="datetime"
+                    value={formData.datetime}
+                    onChange={handleInputChange}
+                    placeholder="Select Date and Time *"
+                    required
+                    className="w-full h-full bg-transparent border-none outline-none font-gilroy-medium text-white placeholder-gray-500 focus:placeholder-gray-400"
                     style={{
                       fontSize: "16px",
                       lineHeight: "20px",
-                      color: "rgba(240, 240, 240, 0.3)",
                       paddingLeft: "18px",
                       paddingRight: "18px",
+                      colorScheme: "dark",
                     }}
                   />
                 </div>
@@ -220,7 +322,13 @@ const ScheduleAppointmentSection = () => {
                 {/* Submit Button */}
                 <div className="pt-6">
                   <button
-                    className="w-full flex items-center justify-center gap-2 font-gilroy-semibold"
+                    onClick={handleSubmit}
+                    disabled={!isFormValid || isSubmitting}
+                    className={`w-full flex items-center justify-center gap-2 font-gilroy-semibold transition-all duration-200 ${
+                      !isFormValid || isSubmitting
+                        ? "opacity-50 cursor-not-allowed"
+                        : "hover:bg-gray-100"
+                    }`}
                     style={{
                       height: "48px",
                       background: "#FFFFFF",
@@ -231,25 +339,39 @@ const ScheduleAppointmentSection = () => {
                       color: "#000000",
                     }}
                   >
-                    Contact us
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M3.33 8H12.67M9.33 4.67L12.67 8L9.33 11.33"
-                        stroke="#000000"
-                        strokeWidth="1.33"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Contact us
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3.33 8H12.67M9.33 4.67L12.67 8L9.33 11.33"
+                            stroke="#000000"
+                            strokeWidth="1.33"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </>
+                    )}
                   </button>
                 </div>
               </div>
+
+              {/* Required fields note */}
+              <p className="text-gray-400 text-sm mt-3 text-center">
+                * Required fields
+              </p>
             </div>
           </div>
         </div>
