@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+
 const WhyChooseVisionexSection = () => {
   const features = [
     "Experience & Precision",
@@ -5,6 +7,19 @@ const WhyChooseVisionexSection = () => {
     "Execution Over Advice",
     "Results That Matter",
   ];
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % (features.length - 1); // Skip last item
+        return nextIndex;
+      });
+    }, 3000); // Change every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [features.length]);
 
   return (
     <div
@@ -26,7 +41,7 @@ const WhyChooseVisionexSection = () => {
 
             {/* Description */}
             <p
-              className="font-gilroy-medium text-white"
+              className="font-medium text-white"
               style={{
                 fontSize: "16px",
                 lineHeight: "140%",
@@ -35,7 +50,7 @@ const WhyChooseVisionexSection = () => {
               }}
             >
               We're not the biggest. We're not the flashiest. But we are
-              relentless when it comes to delivering value.With Visionex
+              relentless when it comes to delivering value. With Visionex
               Solutions, you're not just hiring a service—you're building a
               strategic partnership, fully committed to your business growth.
             </p>
@@ -53,24 +68,59 @@ const WhyChooseVisionexSection = () => {
             </div>
 
             {/* Features List */}
-            <div className="space-y-6 pt-4">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-center gap-4">
-                  {/* Bullet Icon */}
-                  <div className="flex-shrink-0">
-                    <img src="/icons/icon1.svg" alt="" className="w-6 h-6" />
-                  </div>
+            <div className="space-y-0 pt-4 relative">
+              {/* Single Animated Rectangle that moves between positions */}
+              <div
+                className="absolute rounded-md transition-all duration-1000 ease-in-out"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 15%, rgba(255,255,255,0.1) 30%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.1) 70%, rgba(255,255,255,0.05) 85%, transparent 100%)",
+                  left: "-16px",
+                  right: "-16px",
+                  height: "66px",
+                  borderRadius: "8px",
+                  transform: `translateY(${activeIndex * 66}px)`, // Move to active position
+                  zIndex: 1,
+                }}
+              />
 
-                  {/* Feature Text */}
-                  <span
-                    className="font-gilroy-medium text-white"
+              {features.map((feature, index) => (
+                <div key={index}>
+                  <div
+                    className="flex items-center gap-4 relative"
                     style={{
-                      fontSize: "16px",
-                      lineHeight: "140%",
+                      minHeight: "66px", // Ensures consistent height
+                      zIndex: 10,
                     }}
                   >
-                    {feature}
-                  </span>
+                    {/* Bullet Icon */}
+                    <div className="flex-shrink-0 relative z-10">
+                      <img src="/icons/icon1.svg" alt="" className="w-6 h-6" />
+                    </div>
+
+                    {/* Feature Text */}
+                    <span
+                      className="font-gilroy-medium text-white relative z-10"
+                      style={{
+                        fontSize: "16px",
+                        lineHeight: "140%",
+                      }}
+                    >
+                      {feature}
+                    </span>
+                  </div>
+
+                  {/* Divider Line - Only show between items, not after the last one */}
+                  {index < features.length - 1 && (
+                    <div
+                      className="w-full h-px relative z-5"
+                      style={{
+                        background:
+                          "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.2) 80%, transparent 100%)",
+                        margin: "0",
+                      }}
+                    />
+                  )}
                 </div>
               ))}
             </div>
@@ -88,16 +138,33 @@ const WhyChooseVisionexSection = () => {
             </div>
 
             {/* Main Image */}
-            <div className="relative">
+            <div className="relative overflow-hidden">
               <img
-                src="/banners/homebn2.svg"
+                key={activeIndex} // Force re-render for animation
+                src={`/banners/features/${activeIndex + 1}.svg`}
                 alt="Business professionals in meeting"
-                className="w-full h-auto max-w-lg rounded-lg"
+                className="w-full h-auto max-w-lg rounded-lg transition-all duration-1000 ease-in-out"
+                style={{
+                  animation: "slideInLeft 1000ms ease-in-out",
+                }}
               />
             </div>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes slideInLeft {
+          0% {
+            opacity: 0.7;
+            transform: translateX(30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0px);
+          }
+        }
+      `}</style>
     </div>
   );
 };
