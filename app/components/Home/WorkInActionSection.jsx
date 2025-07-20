@@ -59,18 +59,6 @@ const WorkInActionSection = () => {
         {/* Testimonial Card */}
         <div className="relative max-w-7xl mx-auto">
           {/* Background blur effect */}
-          <div
-            className="absolute"
-            style={{
-              left: "115%",
-              top: "43%",
-              width: "200px",
-              height: "30px",
-              background: "#D9D9D9",
-              filter: "blur(150px)",
-              zIndex: -1,
-            }}
-          />
 
           <div
             className="relative px-6 py-12 md:px-16 md:py-16 lg:px-24 lg:py-20 group"
