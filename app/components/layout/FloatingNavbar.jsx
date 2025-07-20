@@ -75,36 +75,9 @@ const FloatingNavbar = () => {
     return currentPath === path;
   };
 
-  const getLinkStyles = (path, isSpecialLink = false) => {
+  const getLinkStyles = (path) => {
     const isActive = isActiveLink(path);
 
-    // Special link (Our Effort) gets gradient when active, normal white when inactive
-    if (isSpecialLink) {
-      if (isActive) {
-        return {
-          background:
-            "linear-gradient(102.19deg, #FF6E1F 43.05%, #FFFFFF 203.16%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-          fontSize: "16px",
-          lineHeight: "27.2px",
-          transform: "scale(1.05)",
-          transition: "all 0.2s ease",
-        };
-      } else {
-        return {
-          color: "#FCFDF2",
-          fontSize: "16px",
-          lineHeight: "27.2px",
-          opacity: 0.8,
-          transform: "scale(1)",
-          transition: "all 0.2s ease",
-        };
-      }
-    }
-
-    // Regular links
     return {
       color: "#FCFDF2",
       fontSize: "16px",
@@ -116,31 +89,9 @@ const FloatingNavbar = () => {
     };
   };
 
-  const getMobileLinkStyles = (path, isSpecialLink = false) => {
+  const getMobileLinkStyles = (path) => {
     const isActive = isActiveLink(path);
 
-    // Special link (Our Effort) gets gradient when active, normal white when inactive
-    if (isSpecialLink) {
-      if (isActive) {
-        return {
-          background:
-            "linear-gradient(102.19deg, #FF6E1F 43.05%, #FFFFFF 203.16%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-          backgroundColor: "rgba(255, 255, 255, 0.1)",
-          borderRadius: "8px",
-        };
-      } else {
-        return {
-          color: "#FCFDF2",
-          backgroundColor: "transparent",
-          borderRadius: "8px",
-        };
-      }
-    }
-
-    // Regular links
     return {
       color: "#FCFDF2",
       backgroundColor: isActive ? "rgba(255, 255, 255, 0.1)" : "transparent",
@@ -227,7 +178,7 @@ const FloatingNavbar = () => {
             ref={(el) => (linkRefs.current["/our-effort"] = el)}
             href="/our-effort"
             className="flex items-center hover:opacity-80 transition-all duration-200 px-2 py-1 font-gilroy-medium whitespace-nowrap"
-            style={getLinkStyles("/our-effort", true)}
+            style={getLinkStyles("/our-effort")}
           >
             Our Effort
           </a>
@@ -351,7 +302,7 @@ const FloatingNavbar = () => {
               <a
                 href="/our-effort"
                 className="flex items-center hover:opacity-80 transition-all duration-200 px-3 py-2 font-gilroy-medium text-body rounded-lg hover:bg-white/5"
-                style={getMobileLinkStyles("/our-effort", true)}
+                style={getMobileLinkStyles("/our-effort")}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Our Effort
