@@ -74,7 +74,7 @@ const WhyChooseVisionexSection = () => {
                 className="absolute rounded-md transition-all duration-1000 ease-in-out"
                 style={{
                   background:
-                    "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 15%, rgba(255,255,255,0.1) 30%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.1) 70%, rgba(255,255,255,0.05) 85%, transparent 100%)",
+                    "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.03) 15%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.06) 70%, rgba(255,255,255,0.03) 85%, transparent 100%)",
                   left: "-16px",
                   right: "-16px",
                   height: "66px",
@@ -126,44 +126,72 @@ const WhyChooseVisionexSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Image */}
+          {/* Right Column - Image with Glass Border */}
           <div className="relative flex justify-center lg:justify-end">
-            {/* Right Gradient - On top of image */}
-            <div className="absolute top-0 right-0 z-10">
+            {/* Small Ellipse Gradient - On top of images */}
+            <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-25">
               <img
-                src="/gradients/gradient2.svg"
+                src="/gradients/ellipse-small.svg"
                 alt=""
-                className="w-auto h-auto opacity-50"
+                className="w-auto h-auto"
               />
             </div>
 
-            {/* Main Image */}
-            <div className="relative overflow-hidden">
-              <img
-                key={activeIndex} // Force re-render for animation
-                src={`/banners/features/${activeIndex + 1}.svg`}
-                alt="Business professionals in meeting"
-                className="w-full h-auto max-w-lg rounded-lg transition-all duration-1000 ease-in-out"
+            {/* Glass Border Container */}
+            <div
+              className="relative overflow-hidden z-20"
+              style={{
+                width: "100%",
+                maxWidth: "32rem", // max-w-lg equivalent
+                height: "400px", // Fixed height for train animation
+                background: "rgba(255, 255, 255, 0.03)",
+                backdropFilter: "blur(25px)",
+                border: "10px solid rgba(255, 255, 255, 0.08)",
+                borderRadius: "32px",
+                boxShadow: `
+                  0 12px 40px 0 rgba(0, 0, 0, 0.5),
+                  inset 0 2px 4px rgba(255, 255, 255, 0.1)
+                `,
+              }}
+            >
+              {/* Train Container - All images in a row */}
+              <div
+                className="flex transition-transform duration-1000 ease-in-out"
                 style={{
-                  animation: "slideInLeft 1000ms ease-in-out",
+                  width: `${(features.length - 1) * 100}%`, // Only first 3 images
+                  height: "100%",
+                  transform: `translateX(-${
+                    activeIndex * (100 / (features.length - 1))
+                  }%)`,
                 }}
-              />
+              >
+                {/* Only render first 3 images */}
+                {features.slice(0, 3).map((_, index) => (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-full h-full flex items-center justify-center"
+                    style={{
+                      width: `${100 / (features.length - 1)}%`,
+                    }}
+                  >
+                    <img
+                      src={`/banners/features/${index + 1}.svg`}
+                      alt={`Feature ${index + 1}`}
+                      className="w-full h-full object-cover"
+                      style={{
+                        borderRadius: "24px",
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes slideInLeft {
-          0% {
-            opacity: 0.7;
-            transform: translateX(30px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0px);
-          }
-        }
+        /* Removed unused slideInLeft animation */
       `}</style>
     </div>
   );

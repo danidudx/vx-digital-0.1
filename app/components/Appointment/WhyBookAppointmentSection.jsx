@@ -40,7 +40,7 @@ const WhyBookAppointmentSection = () => {
           {cardData.map((card, index) => (
             <div
               key={index}
-              className="relative"
+              className="relative group cursor-pointer appointment-card"
               style={{
                 background: "rgba(255, 255, 255, 0.02)",
                 border: "1px solid rgba(255, 255, 255, 0.05)",
@@ -49,6 +49,8 @@ const WhyBookAppointmentSection = () => {
                 padding: "40px 20px",
                 height: "361px",
                 position: "relative",
+                transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                overflow: "hidden",
               }}
             >
               {/* Background Blur Effect */}
@@ -65,8 +67,22 @@ const WhyBookAppointmentSection = () => {
                 }}
               />
 
+              {/* Hover Glow Effect */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-out pointer-events-none"
+                style={{
+                  background: `
+                    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
+                    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),
+                    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),
+                    radial-gradient(circle at 40% 60%, rgba(255, 110, 31, 0.05) 0%, transparent 50%)
+                  `,
+                  borderRadius: "20px",
+                }}
+              />
+
               {/* Nova Icon */}
-              <div className="flex justify-center mb-8">
+              <div className="flex justify-center mb-8 relative z-10">
                 <img
                   src="/icons/nova.svg"
                   alt="Nova Icon"
@@ -82,7 +98,7 @@ const WhyBookAppointmentSection = () => {
 
               {/* Content Container */}
               <div
-                className="flex flex-col items-center text-center"
+                className="flex flex-col items-center text-center relative z-10"
                 style={{
                   position: "absolute",
                   left: "9.7%",
@@ -92,7 +108,7 @@ const WhyBookAppointmentSection = () => {
               >
                 {/* Title */}
                 <h3
-                  className="font-gilroy-medium text-center"
+                  className="font-gilroy-medium text-center transition-all duration-300"
                   style={{
                     fontSize: "24px",
                     lineHeight: "30.6px",
@@ -106,7 +122,7 @@ const WhyBookAppointmentSection = () => {
 
                 {/* Description */}
                 <p
-                  className="font-gilroy-medium text-center"
+                  className="font-gilroy-medium text-center transition-all duration-300"
                   style={{
                     fontSize: "15.13px",
                     lineHeight: "20px",
@@ -119,9 +135,9 @@ const WhyBookAppointmentSection = () => {
                 </p>
 
                 {/* Navaroo Link */}
-                <div className="flex items-center justify-center gap-1">
+                <div className="flex items-center justify-center gap-1 group/link">
                   <span
-                    className="font-gilroy-bold"
+                    className="font-gilroy-bold transition-all duration-300"
                     style={{
                       fontSize: "16px",
                       lineHeight: "30.6px",
@@ -136,6 +152,7 @@ const WhyBookAppointmentSection = () => {
                     viewBox="0 0 16 16"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="transform group-hover/link:translate-x-1 transition-transform duration-300"
                   >
                     <path
                       d="M6 4L10 8L6 12"
@@ -151,6 +168,33 @@ const WhyBookAppointmentSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Custom Styles for Enhanced Hover Effects */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            .appointment-card:hover h3 {
+              text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+            }
+
+            .appointment-card:hover p {
+              opacity: 0.9 !important;
+            }
+
+            /* Smooth transitions for all elements */
+            .appointment-card * {
+              transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            /* Reduce motion for accessibility */
+            @media (prefers-reduced-motion: reduce) {
+              .appointment-card, .appointment-card * {
+                transition: none !important;
+              }
+            }
+          `,
+        }}
+      />
     </div>
   );
 };
