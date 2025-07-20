@@ -8,6 +8,7 @@ import {
 } from "react-router";
 import "./app.css";
 import FloatingNavbar from "./components/layout/FloatingNavbar";
+import Footer from "./components/layout/Footer";
 
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -48,6 +49,8 @@ export default function App() {
 
       {/* Your page content will render here */}
       <Outlet />
+
+      <Footer />
     </>
   );
 }
