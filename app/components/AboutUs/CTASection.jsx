@@ -20,6 +20,25 @@ const CTASection = () => {
               maxHeight: "449px",
             }}
           >
+            {/* Animated Sunlight Rays */}
+            <div
+              className="absolute animated-rays"
+              style={{
+                backgroundImage: 'url("/rays/rays5.svg")',
+                backgroundSize: "150%",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                opacity: "1",
+                mixBlendMode: "screen",
+                zIndex: 1,
+                filter: "brightness(1.2)",
+                left: "-25%",
+                right: "-25%",
+                top: "-25%",
+                bottom: "-25%",
+              }}
+            />
+
             {/* Content overlay */}
             <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 md:py-12">
               {/* Title */}
@@ -72,6 +91,84 @@ const CTASection = () => {
 
       {/* CSS Animations */}
       <style>{`
+        /* Animated Sunlight Rays - Desktop */
+        @keyframes rayMovementDesktop {
+          0% {
+            transform: translateX(-80px) scale(1);
+          }
+          25% {
+            transform: translateX(60px) scale(1.1);
+          }
+          50% {
+            transform: translateX(80px) scale(1);
+          }
+          75% {
+            transform: translateX(-60px) scale(1.1);
+          }
+          100% {
+            transform: translateX(-80px) scale(1);
+          }
+        }
+        
+        /* Animated Sunlight Rays - Mobile */
+        @keyframes rayMovementMobile {
+          0% {
+            transform: translateX(-40px) scale(1);
+          }
+          25% {
+            transform: translateX(30px) scale(1.05);
+          }
+          50% {
+            transform: translateX(40px) scale(1);
+          }
+          75% {
+            transform: translateX(-30px) scale(1.05);
+          }
+          100% {
+            transform: translateX(-40px) scale(1);
+          }
+        }
+        
+        /* Fallback gradient animation */
+        @keyframes rayFallback {
+          0% {
+            background-position: -100% 0%, 100% 0%, 0% -100%;
+          }
+          50% {
+            background-position: 100% 0%, -100% 0%, 0% 100%;
+          }
+          100% {
+            background-position: -100% 0%, 100% 0%, 0% -100%;
+          }
+        }
+        
+        .animated-rays {
+          animation: rayMovementDesktop 4s ease-in-out infinite;
+          transform-origin: center center;
+          will-change: transform;
+        }
+        
+        .animated-rays-fallback {
+          animation: rayFallback 6s ease-in-out infinite;
+          will-change: background-position;
+        }
+        
+        /* Alternative animation for reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+          .animated-rays {
+            animation: rayOpacity 8s ease-in-out infinite;
+          }
+          
+          @keyframes rayOpacity {
+            0%, 100% {
+              opacity: 0.2;
+            }
+            50% {
+              opacity: 0.5;
+            }
+          }
+        }
+        
         /* Smooth hover effects */
         button:hover {
           box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
@@ -83,6 +180,10 @@ const CTASection = () => {
           .relative.z-10 {
             padding-top: 1.5rem;
             padding-bottom: 1.5rem;
+          }
+          
+          .animated-rays {
+            animation: rayMovementMobile 8s ease-in-out infinite;
           }
         }
         
