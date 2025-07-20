@@ -26,7 +26,7 @@ const CTASection = () => {
               style={{
                 backgroundImage: 'url("/rays/rays5.svg")',
                 backgroundSize: "150%",
-                backgroundPosition: "center",
+                backgroundPosition: "center top",
                 backgroundRepeat: "no-repeat",
                 opacity: "1",
                 mixBlendMode: "screen",
@@ -34,8 +34,8 @@ const CTASection = () => {
                 filter: "brightness(1.2)",
                 left: "-25%",
                 right: "-25%",
-                top: "-25%",
-                bottom: "-25%",
+                top: "0",
+                bottom: "-50%",
               }}
             />
 
@@ -110,22 +110,41 @@ const CTASection = () => {
           }
         }
         
+        /* Animated Sunlight Rays - Tablet */
+        @keyframes rayMovementTablet {
+          0% {
+            transform: translateX(-50px) scale(1);
+          }
+          25% {
+            transform: translateX(35px) scale(1.05);
+          }
+          50% {
+            transform: translateX(50px) scale(1);
+          }
+          75% {
+            transform: translateX(-35px) scale(1.05);
+          }
+          100% {
+            transform: translateX(-50px) scale(1);
+          }
+        }
+        
         /* Animated Sunlight Rays - Mobile */
         @keyframes rayMovementMobile {
           0% {
-            transform: translateX(-40px) scale(1);
+            transform: translateX(-25px) scale(1);
           }
           25% {
-            transform: translateX(30px) scale(1.05);
+            transform: translateX(20px) scale(1.02);
           }
           50% {
-            transform: translateX(40px) scale(1);
+            transform: translateX(25px) scale(1);
           }
           75% {
-            transform: translateX(-30px) scale(1.05);
+            transform: translateX(-20px) scale(1.02);
           }
           100% {
-            transform: translateX(-40px) scale(1);
+            transform: translateX(-25px) scale(1);
           }
         }
         
@@ -142,6 +161,7 @@ const CTASection = () => {
           }
         }
         
+        /* Default Desktop Animation */
         .animated-rays {
           animation: rayMovementDesktop 4s ease-in-out infinite;
           transform-origin: center center;
@@ -176,6 +196,18 @@ const CTASection = () => {
         }
         
         /* Responsive breakpoint optimizations */
+        @media (max-width: 1024px) {
+          .animated-rays {
+            animation: rayMovementTablet 5s ease-in-out infinite;
+            left: "-20%";
+            right: "-20%";
+            top: "0";
+            bottom: "-40%";
+            background-size: "140%";
+            background-position: "center top";
+          }
+        }
+        
         @media (max-width: 768px) {
           .relative.z-10 {
             padding-top: 1.5rem;
@@ -183,7 +215,13 @@ const CTASection = () => {
           }
           
           .animated-rays {
-            animation: rayMovementMobile 8s ease-in-out infinite;
+            animation: rayMovementMobile 6s ease-in-out infinite;
+            left: "-15%";
+            right: "-15%";
+            top: "0";
+            bottom: "-30%";
+            background-size: "130%";
+            background-position: "center top";
           }
         }
         
@@ -191,6 +229,15 @@ const CTASection = () => {
           .relative.z-10 {
             padding-top: 1.25rem;
             padding-bottom: 1.25rem;
+          }
+          
+          .animated-rays {
+            left: "-10%";
+            right: "-10%";
+            top: "0";
+            bottom: "-20%";
+            background-size: "120%";
+            background-position: "center top";
           }
         }
         
@@ -202,12 +249,31 @@ const CTASection = () => {
           button {
             gap: 0.375rem !important;
           }
+          
+          .animated-rays {
+            animation-duration: 8s;
+            left: "-8%";
+            right: "-8%";
+            top: "0";
+            bottom: "-15%";
+            background-size: "115%";
+            background-position: "center top";
+          }
         }
         
         @media (max-width: 375px) {
           .relative.z-10 {
             padding-left: 1rem;
             padding-right: 1rem;
+          }
+          
+          .animated-rays {
+            left: "-5%";
+            right: "-5%";
+            top: "0";
+            bottom: "-10%";
+            background-size: "110%";
+            background-position: "center top";
           }
         }
         
