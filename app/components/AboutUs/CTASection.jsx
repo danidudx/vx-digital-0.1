@@ -12,14 +12,23 @@ const CTASection = () => {
           <div
             className="relative w-full rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden"
             style={{
-              backgroundImage: 'url("/banners/bg5.svg")',
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
               height: "clamp(280px, 35vw, 449px)",
               maxHeight: "449px",
             }}
           >
+            {/* Background Image Layer with Reduced Opacity */}
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: 'url("/banners/bg5.svg")',
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                opacity: "0.8",
+                zIndex: 0,
+              }}
+            />
+
             {/* Animated Sunlight Rays */}
             <div
               className="absolute animated-rays"
@@ -28,7 +37,7 @@ const CTASection = () => {
                 backgroundSize: "150%",
                 backgroundPosition: "center top",
                 backgroundRepeat: "no-repeat",
-                opacity: "1",
+                opacity: "0.8",
                 mixBlendMode: "screen",
                 zIndex: 1,
                 filter: "brightness(1.2)",
@@ -96,13 +105,19 @@ const CTASection = () => {
           0% {
             transform: translateX(-80px) scale(1);
           }
-          25% {
+          15% {
+            transform: translateX(-80px) scale(1);
+          }
+          35% {
             transform: translateX(60px) scale(1.1);
           }
           50% {
             transform: translateX(80px) scale(1);
           }
-          75% {
+          65% {
+            transform: translateX(80px) scale(1);
+          }
+          85% {
             transform: translateX(-60px) scale(1.1);
           }
           100% {
@@ -115,13 +130,19 @@ const CTASection = () => {
           0% {
             transform: translateX(-50px) scale(1);
           }
-          25% {
+          15% {
+            transform: translateX(-50px) scale(1);
+          }
+          35% {
             transform: translateX(35px) scale(1.05);
           }
           50% {
             transform: translateX(50px) scale(1);
           }
-          75% {
+          65% {
+            transform: translateX(50px) scale(1);
+          }
+          85% {
             transform: translateX(-35px) scale(1.05);
           }
           100% {
@@ -134,13 +155,19 @@ const CTASection = () => {
           0% {
             transform: translateX(-25px) scale(1);
           }
-          25% {
+          20% {
+            transform: translateX(-25px) scale(1);
+          }
+          40% {
             transform: translateX(20px) scale(1.02);
           }
           50% {
             transform: translateX(25px) scale(1);
           }
-          75% {
+          70% {
+            transform: translateX(25px) scale(1);
+          }
+          90% {
             transform: translateX(-20px) scale(1.02);
           }
           100% {
@@ -163,7 +190,7 @@ const CTASection = () => {
         
         /* Default Desktop Animation */
         .animated-rays {
-          animation: rayMovementDesktop 4s ease-in-out infinite;
+          animation: rayMovementDesktop 10s ease-in-out infinite;
           transform-origin: center center;
           will-change: transform;
         }
@@ -198,7 +225,7 @@ const CTASection = () => {
         /* Responsive breakpoint optimizations */
         @media (max-width: 1024px) {
           .animated-rays {
-            animation: rayMovementTablet 5s ease-in-out infinite;
+            animation: rayMovementTablet 12s ease-in-out infinite;
             left: "-20%";
             right: "-20%";
             top: "0";
@@ -215,7 +242,7 @@ const CTASection = () => {
           }
           
           .animated-rays {
-            animation: rayMovementMobile 6s ease-in-out infinite;
+            animation: rayMovementMobile 14s ease-in-out infinite;
             left: "-15%";
             right: "-15%";
             top: "0";
@@ -232,6 +259,7 @@ const CTASection = () => {
           }
           
           .animated-rays {
+            animation-duration: 16s;
             left: "-10%";
             right: "-10%";
             top: "0";
@@ -251,7 +279,7 @@ const CTASection = () => {
           }
           
           .animated-rays {
-            animation-duration: 8s;
+            animation-duration: 18s;
             left: "-8%";
             right: "-8%";
             top: "0";
@@ -268,6 +296,7 @@ const CTASection = () => {
           }
           
           .animated-rays {
+            animation-duration: 20s;
             left: "-5%";
             right: "-5%";
             top: "0";
