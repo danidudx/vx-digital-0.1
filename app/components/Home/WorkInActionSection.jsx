@@ -73,43 +73,67 @@ const WorkInActionSection = () => {
           />
 
           <div
-            className="relative px-6 py-12 md:px-16 md:py-16 lg:px-24 lg:py-20 group overflow-hidden"
+            className="relative px-6 py-12 md:px-16 md:py-16 lg:px-24 lg:py-20 group"
             style={{
               background: "rgba(255, 255, 255, 0.02)",
               border: "1px solid rgba(255, 255, 255, 0.05)",
               boxShadow: "inset 0px 0px 3px rgba(255, 255, 255, 0.1)",
               borderRadius: "20px",
               minHeight: "280px",
+              overflow: "hidden",
             }}
           >
             {/* Animated gradient overlay */}
             <div
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out pointer-events-none"
+              className="absolute pointer-events-none gradient-animation"
               style={{
+                top: "0",
+                bottom: "0",
+                right: "calc(100% + 120px)",
+                width: "120px",
                 background:
-                  "radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 30%, transparent 70%)",
-                animation: "gradientSlide 1.2s ease-out forwards",
-                animationDelay: "0.1s",
-                animationPlayState: "paused",
+                  "linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1) 80%, transparent 100%)",
+                opacity: "0",
+                filter: "blur(60px)",
+                transform: "translateX(0) scaleX(0.1)",
+                borderRadius: "0",
               }}
             />
 
             <style jsx>{`
-              .group:hover .absolute:first-of-type {
-                animation-play-state: running !important;
+              .group:hover .gradient-animation {
+                animation: blockSlide 0.8s ease-out forwards;
               }
 
-              @keyframes gradientSlide {
+              .group:not(:hover) .gradient-animation {
+                animation: blockSlideOut 0.6s ease-in forwards;
+              }
+
+              @keyframes blockSlide {
                 0% {
-                  transform: translateX(100%) scale(0.3);
+                  transform: translateX(0) scaleX(0.1);
                   opacity: 0;
                 }
-                30% {
-                  opacity: 1;
+                20% {
+                  opacity: 0.7;
                 }
                 100% {
-                  transform: translateX(0%) scale(1);
-                  opacity: 0.8;
+                  transform: translateX(calc(50vw - 60px)) scaleX(2);
+                  opacity: 0.4;
+                }
+              }
+
+              @keyframes blockSlideOut {
+                0% {
+                  transform: translateX(calc(50vw - 60px)) scaleX(2);
+                  opacity: 0.4;
+                }
+                80% {
+                  opacity: 0.7;
+                }
+                100% {
+                  transform: translateX(0) scaleX(0.1);
+                  opacity: 0;
                 }
               }
             `}</style>
