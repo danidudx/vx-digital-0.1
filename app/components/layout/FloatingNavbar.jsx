@@ -1,12 +1,159 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const FloatingNavbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState("/");
+  const [spotlightPosition, setSpotlightPosition] = useState({
+    x: 0,
+    width: 0,
+  });
+  const navRef = useRef(null);
+  const linkRefs = useRef({});
+
+  // Update current path when component mounts and on route changes
+  useEffect(() => {
+    const updatePath = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
+    // Set initial path
+    updatePath();
+
+    // Listen for navigation changes (for SPAs)
+    window.addEventListener("popstate", updatePath);
+
+    // Also listen for pushstate/replacestate (for programmatic navigation)
+    const originalPushState = window.history.pushState;
+    const originalReplaceState = window.history.replaceState;
+
+    window.history.pushState = function (...args) {
+      originalPushState.apply(window.history, args);
+      updatePath();
+    };
+
+    window.history.replaceState = function (...args) {
+      originalReplaceState.apply(window.history, args);
+      updatePath();
+    };
+
+    return () => {
+      window.removeEventListener("popstate", updatePath);
+      window.history.pushState = originalPushState;
+      window.history.replaceState = originalReplaceState;
+    };
+  }, []);
+
+  // Update spotlight position based on active link
+  useEffect(() => {
+    const updateSpotlight = () => {
+      const activeRef = linkRefs.current[currentPath];
+      const navElement = navRef.current;
+
+      if (activeRef && navElement) {
+        const navRect = navElement.getBoundingClientRect();
+        const linkRect = activeRef.getBoundingClientRect();
+
+        const relativeX = linkRect.left - navRect.left;
+        const centerX = relativeX + linkRect.width / 2;
+
+        setSpotlightPosition({
+          x: centerX,
+          width: linkRect.width + 40, // Add some padding around the link
+        });
+      }
+    };
+
+    // Small delay to ensure elements are rendered
+    setTimeout(updateSpotlight, 100);
+
+    // Update on window resize
+    window.addEventListener("resize", updateSpotlight);
+    return () => window.removeEventListener("resize", updateSpotlight);
+  }, [currentPath]);
+
+  const isActiveLink = (path) => {
+    return currentPath === path;
+  };
+
+  const getLinkStyles = (path, isSpecialLink = false) => {
+    const isActive = isActiveLink(path);
+
+    // Special link (Our Effort) gets gradient when active, normal white when inactive
+    if (isSpecialLink) {
+      if (isActive) {
+        return {
+          background:
+            "linear-gradient(102.19deg, #FF6E1F 43.05%, #FFFFFF 203.16%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+          fontSize: "16px",
+          lineHeight: "27.2px",
+          transform: "scale(1.05)",
+          transition: "all 0.2s ease",
+        };
+      } else {
+        return {
+          color: "#FCFDF2",
+          fontSize: "16px",
+          lineHeight: "27.2px",
+          opacity: 0.8,
+          transform: "scale(1)",
+          transition: "all 0.2s ease",
+        };
+      }
+    }
+
+    // Regular links
+    return {
+      color: "#FCFDF2",
+      fontSize: "16px",
+      lineHeight: "27.2px",
+      opacity: isActive ? 1 : 0.8,
+      transform: isActive ? "scale(1.05)" : "scale(1)",
+      transition: "all 0.2s ease",
+      textShadow: isActive ? "0 0 8px rgba(252, 253, 242, 0.3)" : "none",
+    };
+  };
+
+  const getMobileLinkStyles = (path, isSpecialLink = false) => {
+    const isActive = isActiveLink(path);
+
+    // Special link (Our Effort) gets gradient when active, normal white when inactive
+    if (isSpecialLink) {
+      if (isActive) {
+        return {
+          background:
+            "linear-gradient(102.19deg, #FF6E1F 43.05%, #FFFFFF 203.16%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+          backgroundColor: "rgba(255, 255, 255, 0.1)",
+          borderRadius: "8px",
+        };
+      } else {
+        return {
+          color: "#FCFDF2",
+          backgroundColor: "transparent",
+          borderRadius: "8px",
+        };
+      }
+    }
+
+    // Regular links
+    return {
+      color: "#FCFDF2",
+      backgroundColor: isActive ? "rgba(255, 255, 255, 0.1)" : "transparent",
+      borderRadius: "8px",
+      textShadow: isActive ? "0 0 8px rgba(252, 253, 242, 0.3)" : "none",
+    };
+  };
 
   return (
     <>
       {/* Main Navbar */}
       <nav
+        ref={navRef}
         className="fixed left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-between px-4 sm:px-5 py-3 sm:py-4 mx-4 sm:mx-0"
         style={{
           top: "16px",
@@ -22,6 +169,33 @@ const FloatingNavbar = () => {
           boxSizing: "border-box",
         }}
       >
+        {/* Spotlight Effect */}
+        <div
+          className="absolute inset-0 pointer-events-none transition-all duration-500 ease-out"
+          style={{
+            background: `radial-gradient(${spotlightPosition.width}px circle at ${spotlightPosition.x}px center, 
+              rgba(255, 255, 255, 0.15) 0%, 
+              rgba(255, 255, 255, 0.08) 30%, 
+              rgba(255, 255, 255, 0.02) 60%, 
+              transparent 100%)`,
+            borderRadius: "100px",
+            opacity: spotlightPosition.x > 0 ? 1 : 0,
+          }}
+        />
+
+        {/* Enhanced glow effect for active link area */}
+        <div
+          className="absolute inset-0 pointer-events-none transition-all duration-500 ease-out"
+          style={{
+            background: `radial-gradient(${
+              spotlightPosition.width * 0.6
+            }px circle at ${spotlightPosition.x}px center, 
+              rgba(252, 253, 242, 0.1) 0%, 
+              transparent 70%)`,
+            borderRadius: "100px",
+            opacity: spotlightPosition.x > 0 ? 1 : 0,
+          }}
+        />
         {/* Logo */}
         <div className="flex items-center flex-shrink-0">
           <img
@@ -34,39 +208,26 @@ const FloatingNavbar = () => {
         {/* Desktop Navigation Menu */}
         <div className="hidden lg:flex items-center space-x-3 xl:space-x-5">
           <a
+            ref={(el) => (linkRefs.current["/"] = el)}
             href="/"
-            className="flex items-center hover:opacity-80 transition-opacity duration-200 px-2 py-1 font-gilroy-medium whitespace-nowrap"
-            style={{
-              color: "#FCFDF2",
-              fontSize: "16px",
-              lineHeight: "27.2px",
-            }}
+            className="flex items-center hover:opacity-80 transition-all duration-200 px-2 py-1 font-gilroy-medium whitespace-nowrap"
+            style={getLinkStyles("/")}
           >
             Home
           </a>
           <a
+            ref={(el) => (linkRefs.current["/about"] = el)}
             href="/about"
-            className="flex items-center hover:opacity-80 transition-opacity duration-200 px-2 py-1 font-gilroy-medium whitespace-nowrap"
-            style={{
-              color: "#FCFDF2",
-              fontSize: "16px",
-              lineHeight: "27.2px",
-            }}
+            className="flex items-center hover:opacity-80 transition-all duration-200 px-2 py-1 font-gilroy-medium whitespace-nowrap"
+            style={getLinkStyles("/about")}
           >
             About Us
           </a>
           <a
+            ref={(el) => (linkRefs.current["/our-effort"] = el)}
             href="/our-effort"
-            className="flex items-center hover:opacity-80 transition-opacity duration-200 px-2 py-1 font-gilroy-medium whitespace-nowrap"
-            style={{
-              background:
-                "linear-gradient(102.19deg, #FF6E1F 43.05%, #FFFFFF 203.16%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              fontSize: "16px",
-              lineHeight: "27.2px",
-            }}
+            className="flex items-center hover:opacity-80 transition-all duration-200 px-2 py-1 font-gilroy-medium whitespace-nowrap"
+            style={getLinkStyles("/our-effort", true)}
           >
             Our Effort
           </a>
@@ -74,6 +235,7 @@ const FloatingNavbar = () => {
 
         {/* Desktop Book Appointment Button */}
         <a
+          ref={(el) => (linkRefs.current["/booking"] = el)}
           href="/booking"
           className="hidden sm:flex items-center justify-center gap-2 hover:opacity-90 transition-opacity duration-200 px-3 lg:px-4 flex-shrink-0"
           style={{
@@ -84,6 +246,11 @@ const FloatingNavbar = () => {
             border: "1px solid #FFFFFF",
             borderRadius: "58px",
             boxSizing: "border-box",
+            transform: isActiveLink("/booking") ? "scale(1.05)" : "scale(1)",
+            boxShadow: isActiveLink("/booking")
+              ? "0 0 15px rgba(255, 255, 255, 0.3)"
+              : "none",
+            transition: "all 0.2s ease",
           }}
         >
           <span
@@ -167,30 +334,24 @@ const FloatingNavbar = () => {
             <div className="flex flex-col space-y-3">
               <a
                 href="/"
-                className="flex items-center hover:opacity-80 transition-opacity duration-200 px-3 py-2 font-gilroy-bold text-body rounded-lg hover:bg-white/5"
-                style={{ color: "#FCFDF2" }}
+                className="flex items-center hover:opacity-80 transition-all duration-200 px-3 py-2 font-gilroy-bold text-body rounded-lg hover:bg-white/5"
+                style={getMobileLinkStyles("/")}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Home
               </a>
               <a
                 href="/about"
-                className="flex items-center hover:opacity-80 transition-opacity duration-200 px-3 py-2 font-gilroy-medium text-body rounded-lg hover:bg-white/5"
-                style={{ color: "#FCFDF2" }}
+                className="flex items-center hover:opacity-80 transition-all duration-200 px-3 py-2 font-gilroy-medium text-body rounded-lg hover:bg-white/5"
+                style={getMobileLinkStyles("/about")}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 About Us
               </a>
               <a
                 href="/our-effort"
-                className="flex items-center hover:opacity-80 transition-opacity duration-200 px-3 py-2 font-gilroy-medium text-body rounded-lg hover:bg-white/5"
-                style={{
-                  background:
-                    "linear-gradient(102.19deg, #FF6E1F 43.05%, #FFFFFF 203.16%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
+                className="flex items-center hover:opacity-80 transition-all duration-200 px-3 py-2 font-gilroy-medium text-body rounded-lg hover:bg-white/5"
+                style={getMobileLinkStyles("/our-effort", true)}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Our Effort
@@ -201,12 +362,18 @@ const FloatingNavbar = () => {
             <div className="pt-2 border-t border-white/10">
               <a
                 href="/booking"
-                className="w-full flex items-center justify-center gap-2 hover:opacity-90 transition-opacity duration-200 px-4 py-3"
+                className="w-full flex items-center justify-center gap-2 hover:opacity-90 transition-all duration-200 px-4 py-3"
                 style={{
                   background: "#FFFFFF",
                   border: "1px solid #FFFFFF",
                   borderRadius: "58px",
                   boxSizing: "border-box",
+                  transform: isActiveLink("/booking")
+                    ? "scale(1.02)"
+                    : "scale(1)",
+                  boxShadow: isActiveLink("/booking")
+                    ? "0 0 15px rgba(255, 255, 255, 0.3)"
+                    : "none",
                 }}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
