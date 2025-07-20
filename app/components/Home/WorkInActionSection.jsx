@@ -92,7 +92,7 @@ const WorkInActionSection = () => {
                 right: "calc(100% + 120px)",
                 width: "120px",
                 background:
-                  "linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1) 80%, transparent 100%)",
+                  "linear-gradient(to right, transparent 0%, rgba(255, 110, 31, 0.1) 15%, rgba(255, 255, 255, 0.2) 35%, rgba(255, 110, 31, 0.15) 50%, rgba(255, 255, 255, 0.2) 65%, rgba(255, 110, 31, 0.1) 85%, transparent 100%)",
                 opacity: "0",
                 filter: "blur(60px)",
                 transform: "translateX(0) scaleX(0.1)",
