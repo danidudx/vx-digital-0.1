@@ -4,9 +4,18 @@ import { Link } from "react-router";
 const Footer = () => {
   return (
     <footer
-      className="text-white px-4 py-8 md:py-12"
+      className="relative z-[9999] text-white px-4  pb-8 md:pb-12"
       style={{ backgroundColor: "#09090D" }}
     >
+      <div className="absolute top-0 left-0 w-full -translate-y-full z-10">
+        <img
+          src="/gradients/half-ellipse.svg"
+          alt=""
+          className="w-full h-auto block opacity-50"
+          style={{ display: "block" }}
+        />
+      </div>
+
       {/* Orange Gradient Bar */}
       <div
         className="w-full mb-8 md:mb-12"
@@ -19,9 +28,9 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto">
         {/* Top Row - Logo and Navigation */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 lg:mb-12">
+        <div className="flex flex-col items-center text-center lg:flex-row lg:justify-between lg:items-start lg:text-left mb-8 lg:mb-12">
           {/* Logo Section */}
-          <div className="mb-6 lg:mb-0">
+          <div className="mb-6 lg:mb-0 flex justify-center lg:justify-start">
             <Link to="/">
               <img
                 src="/icons/logo.svg"
@@ -32,7 +41,7 @@ const Footer = () => {
           </div>
 
           {/* Navigation Links */}
-          <nav className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-12">
+          <nav className="flex flex-col items-center sm:flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-12 lg:items-start">
             <Link
               to="/"
               className="text-white hover:text-orange-500 transition-colors duration-200 text-sm md:text-base"
@@ -73,7 +82,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Row - Contact Info with Dividers */}
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-start gap-6 lg:gap-0">
+        <div className="flex flex-col justify-center items-center text-center lg:flex-row lg:items-center lg:justify-start lg:text-left gap-6 lg:gap-0">
           {/* Follow Us Section */}
           <div className="lg:pr-8 xl:pr-12">
             <h3
@@ -92,7 +101,14 @@ const Footer = () => {
                 href="https://telegram.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-orange-500 transition-colors duration-200 text-sm"
+                className="text-white hover:text-orange-500 transition-colors duration-200"
+                style={{
+                  fontSize: "16px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  fontFamily: "Gilroy-Medium, Arial, sans-serif",
+                  color: "#CAC9C4",
+                }}
               >
                 Telegram
               </a>
@@ -100,7 +116,14 @@ const Footer = () => {
                 href="https://whatsapp.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-orange-500 transition-colors duration-200 text-sm"
+                className="hover:text-orange-500 transition-colors duration-200"
+                style={{
+                  fontSize: "16px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  fontFamily: "Gilroy-Medium, Arial, sans-serif",
+                  color: "#CAC9C4",
+                }}
               >
                 Whatsapp
               </a>
@@ -108,7 +131,14 @@ const Footer = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-orange-500 transition-colors duration-200 text-sm"
+                className="hover:text-orange-500 transition-colors duration-200"
+                style={{
+                  fontSize: "16px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  fontFamily: "Gilroy-Medium, Arial, sans-serif",
+                  color: "#CAC9C4",
+                }}
               >
                 Instagram
               </a>
@@ -134,13 +164,27 @@ const Footer = () => {
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 lg:gap-6">
               <a
                 href="tel:+18919891191"
-                className="text-white hover:text-orange-500 transition-colors duration-200 text-sm whitespace-nowrap"
+                className="hover:text-orange-500 transition-colors duration-200 whitespace-nowrap"
+                style={{
+                  fontSize: "16px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  fontFamily: "Gilroy-Medium, Arial, sans-serif",
+                  color: "#CAC9C4",
+                }}
               >
                 +1 891 989-11-91
               </a>
               <a
                 href="mailto:info@visionexdigital.com.au"
-                className="text-white hover:text-orange-500 transition-colors duration-200 text-sm break-all"
+                className="hover:text-orange-500 transition-colors duration-200 break-all"
+                style={{
+                  fontSize: "16px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  fontFamily: "Gilroy-Medium, Arial, sans-serif",
+                  color: "#CAC9C4",
+                }}
               >
                 info@visionexdigital.com.au
               </a>
@@ -163,14 +207,43 @@ const Footer = () => {
             >
               LOCATION
             </h3>
-            <div className="text-white text-sm leading-relaxed">
-              <span className="block sm:inline">
+            <div className="leading-relaxed">
+              <span
+                className="block sm:inline"
+                style={{
+                  fontSize: "16px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  fontFamily: "Gilroy-Medium, Arial, sans-serif",
+                  color: "#CAC9C4",
+                }}
+              >
                 Suite 536, Waterman Caribbean Park,
               </span>
-              <span className="block sm:inline sm:ml-1">
+              <span
+                className="block sm:inline sm:ml-1"
+                style={{
+                  fontSize: "16px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  fontFamily: "Gilroy-Medium, Arial, sans-serif",
+                  color: "#CAC9C4",
+                }}
+              >
                 44 Lakeview Drive, Scoresby,
               </span>
-              <span className="block sm:inline sm:ml-1">Victoria 3179</span>
+              <span
+                className="block sm:inline sm:ml-1"
+                style={{
+                  fontSize: "16px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  fontFamily: "Gilroy-Medium, Arial, sans-serif",
+                  color: "#CAC9C4",
+                }}
+              >
+                Victoria 3179
+              </span>
             </div>
           </div>
         </div>
