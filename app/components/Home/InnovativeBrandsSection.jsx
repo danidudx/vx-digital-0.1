@@ -28,13 +28,14 @@ const InnovativeBrandsSection = () => {
 
   return (
     <div
-      className="relative py-16 md:py-24 lg:py-32"
+      className="relative overflow-visible -mt-32 py-28 md:py-32 lg:py-56"
       style={{
         backgroundColor: "#09090D",
-        backgroundImage: 'url("/banners/bg3.svg")',
+        backgroundImage: 'url("/banners/bn44.svg")',
         backgroundSize: "contain",
-        backgroundPosition: "top",
+        backgroundPosition: "center top", // no need for negative Y anymore
         backgroundRepeat: "no-repeat",
+        // ensure it's above previous
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
