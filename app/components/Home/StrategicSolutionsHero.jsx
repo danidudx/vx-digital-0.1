@@ -135,7 +135,7 @@ const StrategicSolutionsHero = () => {
         }}
       >
         {/* Hero Content Section */}
-        <div className="relative z-10 pt-20 sm:pt-32 md:pt-44 pb-12 sm:pb-16 md:pb-20">
+        <div className="relative z-10 pt-40 sm:pt-32 md:pt-44 pb-12 sm:pb-16 md:pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             {/* Badge */}
             <div className="flex items-center justify-center mb-6 sm:mb-8">
