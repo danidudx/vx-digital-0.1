@@ -377,7 +377,18 @@ const StrategicSolutionsHero = () => {
                 </h2>
 
                 {/* Services Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+                <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+                  {/* Divider – only visible on sm+ screens */}
+                  <div className="hidden sm:block absolute inset-y-0 left-1/2 w-px z-10">
+                    <div
+                      className="h-full"
+                      style={{
+                        background:
+                          "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%)",
+                      }}
+                    />
+                  </div>
+
                   {/* Bid Management */}
                   <div className="space-y-3 text-center sm:text-left">
                     <h3
