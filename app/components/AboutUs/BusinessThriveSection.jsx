@@ -10,6 +10,30 @@ const BusinessThriveSection = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
+      {/* Add keyframes for organic moving gradient animation */}
+      <style jsx>{`
+        @keyframes organicMove {
+          0% {
+            transform: translate(-50%, -50%) translate(0px, 0px);
+          }
+          25% {
+            transform: translate(-50%, -50%) translate(15px, -20px);
+          }
+          50% {
+            transform: translate(-50%, -50%) translate(-10px, -15px);
+          }
+          75% {
+            transform: translate(-50%, -50%) translate(-20px, 10px);
+          }
+          100% {
+            transform: translate(-50%, -50%) translate(0px, 0px);
+          }
+        }
+        .moving-gradient {
+          animation: organicMove 6s ease-in-out infinite;
+        }
+      `}</style>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header with badge */}
         <div className="text-center mb-12 sm:mb-16">
@@ -90,7 +114,7 @@ const BusinessThriveSection = () => {
             {/* Card 1 - Client Portfolios */}
             <div className="flex justify-center">
               <div
-                className="relative"
+                className="relative overflow-hidden"
                 style={{
                   width: "clamp(280px, 90vw, 392px)",
                   height: "clamp(220px, 60vw, 309px)",
@@ -179,17 +203,16 @@ const BusinessThriveSection = () => {
                   </span>
                 </div>
 
-                {/* Inner glow effect */}
+                {/* Moving inner glow effect */}
                 <div
-                  className="absolute"
+                  className="absolute moving-gradient"
                   style={{
                     left: "50%",
                     top: "50%",
-                    transform: "translate(-50%, -50%)",
                     width: "200px",
                     height: "200px",
                     background:
-                      "radial-gradient(circle, rgba(217, 217, 217, 0.2) 0%, rgba(217, 217, 217, 0.1) 30%, rgba(217, 217, 217, 0.05) 60%, transparent 80%)",
+                      "radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(255, 200, 150, 0.15) 30%, rgba(255, 150, 100, 0.12) 50%, rgba(255, 110, 31, 0.08) 70%, transparent 90%)",
                     borderRadius: "50%",
                     filter: "blur(20px)",
                     pointerEvents: "none",
@@ -201,7 +224,7 @@ const BusinessThriveSection = () => {
             {/* Card 2 - Followers Base */}
             <div className="flex justify-center">
               <div
-                className="relative"
+                className="relative overflow-hidden"
                 style={{
                   width: "clamp(280px, 90vw, 392px)",
                   height: "clamp(220px, 60vw, 309px)",
@@ -290,17 +313,16 @@ const BusinessThriveSection = () => {
                   </span>
                 </div>
 
-                {/* Inner glow effect */}
+                {/* Moving inner glow effect */}
                 <div
-                  className="absolute"
+                  className="absolute moving-gradient"
                   style={{
                     left: "50%",
                     top: "50%",
-                    transform: "translate(-50%, -50%)",
                     width: "200px",
                     height: "200px",
                     background:
-                      "radial-gradient(circle, rgba(217, 217, 217, 0.2) 0%, rgba(217, 217, 217, 0.1) 30%, rgba(217, 217, 217, 0.05) 60%, transparent 80%)",
+                      "radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(255, 200, 150, 0.15) 30%, rgba(255, 150, 100, 0.12) 50%, rgba(255, 110, 31, 0.08) 70%, transparent 90%)",
                     borderRadius: "50%",
                     filter: "blur(20px)",
                     pointerEvents: "none",
@@ -312,7 +334,7 @@ const BusinessThriveSection = () => {
             {/* Card 3 - Strike Rate */}
             <div className="flex justify-center">
               <div
-                className="relative"
+                className="relative overflow-hidden"
                 style={{
                   width: "clamp(320px, 90vw, 509px)",
                   height: "clamp(160px, 45vw, 222px)",
@@ -392,17 +414,16 @@ const BusinessThriveSection = () => {
                   </svg>
                 </div>
 
-                {/* Inner glow effect */}
+                {/* Moving inner glow effect */}
                 <div
-                  className="absolute"
+                  className="absolute moving-gradient"
                   style={{
                     left: "50%",
                     top: "50%",
-                    transform: "translate(-50%, -50%)",
                     width: "250px",
                     height: "150px",
                     background:
-                      "radial-gradient(ellipse, rgba(217, 217, 217, 0.2) 0%, rgba(217, 217, 217, 0.1) 30%, rgba(217, 217, 217, 0.05) 60%, transparent 80%)",
+                      "radial-gradient(ellipse, rgba(255, 255, 255, 0.18) 0%, rgba(255, 200, 150, 0.15) 30%, rgba(255, 150, 100, 0.12) 50%, rgba(255, 110, 31, 0.08) 70%, transparent 90%)",
                     borderRadius: "50%",
                     filter: "blur(25px)",
                     pointerEvents: "none",
@@ -417,7 +438,7 @@ const BusinessThriveSection = () => {
             {/* Position 1: Client Portfolios (row-span-2) */}
             <div className="row-span-2 flex items-center justify-center">
               <div
-                className="relative"
+                className="relative overflow-hidden"
                 style={{
                   width: "392px",
                   height: "309px",
@@ -506,22 +527,21 @@ const BusinessThriveSection = () => {
                   </span>
                 </div>
 
-                {/* Inner glow effect */}
-                {/* <div
-                  className="absolute"
+                {/* Moving inner glow effect */}
+                <div
+                  className="absolute moving-gradient"
                   style={{
                     left: "50%",
                     top: "50%",
-                    transform: "translate(-50%, -50%)",
                     width: "200px",
                     height: "200px",
                     background:
-                      "radial-gradient(circle, rgba(217, 217, 217, 0.2) 0%, rgba(217, 217, 217, 0.1) 30%, rgba(217, 217, 217, 0.05) 60%, transparent 80%)",
+                      "radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(255, 200, 150, 0.15) 30%, rgba(255, 150, 100, 0.12) 50%, rgba(255, 110, 31, 0.08) 70%, transparent 90%)",
                     borderRadius: "50%",
                     filter: "blur(20px)",
                     pointerEvents: "none",
                   }}
-                ></div> */}
+                ></div>
               </div>
             </div>
 
@@ -538,7 +558,7 @@ const BusinessThriveSection = () => {
             {/* Position 3: Followers Base (col-start-3 row-start-1 row-span-2) */}
             <div className="col-start-3 row-start-1 row-span-2 flex items-center justify-center">
               <div
-                className="relative"
+                className="relative overflow-hidden"
                 style={{
                   width: "392px",
                   height: "309px",
@@ -627,17 +647,16 @@ const BusinessThriveSection = () => {
                   </span>
                 </div>
 
-                {/* Inner glow effect */}
+                {/* Moving inner glow effect */}
                 <div
-                  className="absolute"
+                  className="absolute moving-gradient"
                   style={{
                     left: "50%",
                     top: "50%",
-                    transform: "translate(-50%, -50%)",
                     width: "200px",
                     height: "200px",
                     background:
-                      "radial-gradient(circle, rgba(217, 217, 217, 0.2) 0%, rgba(217, 217, 217, 0.1) 30%, rgba(217, 217, 217, 0.05) 60%, transparent 80%)",
+                      "radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(255, 200, 150, 0.15) 30%, rgba(255, 150, 100, 0.12) 50%, rgba(255, 110, 31, 0.08) 70%, transparent 90%)",
                     borderRadius: "50%",
                     filter: "blur(20px)",
                     pointerEvents: "none",
@@ -649,7 +668,7 @@ const BusinessThriveSection = () => {
             {/* Position 4: Strike Rate (col-start-2 row-start-4 row-span-2) */}
             <div className="col-start-2 row-start-4 row-span-2 flex items-start justify-center">
               <div
-                className="relative"
+                className="relative overflow-hidden"
                 style={{
                   width: "509px",
                   height: "222px",
@@ -729,17 +748,16 @@ const BusinessThriveSection = () => {
                   </svg>
                 </div>
 
-                {/* Inner glow effect */}
+                {/* Moving inner glow effect */}
                 <div
-                  className="absolute"
+                  className="absolute moving-gradient"
                   style={{
                     left: "50%",
                     top: "50%",
-                    transform: "translate(-50%, -50%)",
                     width: "250px",
                     height: "150px",
                     background:
-                      "radial-gradient(ellipse, rgba(217, 217, 217, 0.2) 0%, rgba(217, 217, 217, 0.1) 30%, rgba(217, 217, 217, 0.05) 60%, transparent 80%)",
+                      "radial-gradient(ellipse, rgba(255, 255, 255, 0.18) 0%, rgba(255, 200, 150, 0.15) 30%, rgba(255, 150, 100, 0.12) 50%, rgba(255, 110, 31, 0.08) 70%, transparent 90%)",
                     borderRadius: "50%",
                     filter: "blur(25px)",
                     pointerEvents: "none",
