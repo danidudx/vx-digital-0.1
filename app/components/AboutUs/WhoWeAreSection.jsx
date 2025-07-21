@@ -4,44 +4,27 @@ const WhoWeAreSection = () => {
       className="relative py-12 sm:py-16 md:py-20"
       style={{ backgroundColor: "#09090D" }}
     >
-      {/* Background blur effects for this section */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Ellipse 155 - Orange blur on image - Responsive positioning */}
-        <div
-          className="absolute rounded-full"
-          style={{
-            width: "200px",
-            height: "200px",
-            right: "-30px",
-            top: "150px",
-            background: "rgba(255, 110, 31, 0.59)",
-            opacity: "0.71",
-            filter: "blur(150px)",
-            transform: "rotate(-89.98deg)",
-            zIndex: 15,
-          }}
-        ></div>
-        {/* Ellipse 158 - Orange vertical blur - Responsive */}
-        <div
-          className="absolute rounded-full hidden md:block"
-          style={{
-            width: "60px",
-            height: "500px",
-            left: "200px",
-            top: "80px",
-            background: "#FF6E1F",
-            opacity: "0.7",
-            filter: "blur(150px)",
-            transform: "rotate(-89.98deg)",
-          }}
-        ></div>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center relative z-10">
           {/* Text Content */}
-          <div className="w-full">
-            {/* Title with clamp sizing */}
+          {/* Text Content */}
+          <div className="relative w-full">
+            {/* Orange Ellipse Gradient */}
+            <div
+              className="absolute left-0 w-full flex justify-center z-0"
+              style={{
+                top: "100%",
+                transform: "translateY(-70%)",
+              }}
+            >
+              <div
+                className="w-[1200px] h-[700px] rounded-full opacity-20 blur-[100px]"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at center, #FF6E1F 0%, transparent 70%)",
+                }}
+              />
+            </div>
             <h2
               className="font-gilroy-bold text-gray-100 mb-6 sm:mb-8"
               style={{
