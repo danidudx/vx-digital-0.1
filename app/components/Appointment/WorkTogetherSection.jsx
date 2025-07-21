@@ -1,14 +1,14 @@
 const WorkTogetherSection = () => {
   return (
     <div
-      className="relative py-16 md:py-20 lg:py-24 flex items-center overflow-hidden"
+      className="relative py-24 md:py-32 lg:py-40 flex items-center overflow-hidden"
       style={{
         backgroundColor: "#09090D",
         backgroundImage: 'url("/backgrounds/heroback2.svg")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        minHeight: "600px",
+        minHeight: "70vh", // 70% of viewport height
       }}
     >
       {/* Animated Line Images */}
@@ -108,18 +108,18 @@ const WorkTogetherSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="text-center w-full">
           {/* Customer Images and Reviews - Single Row */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-6 md:mb-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 md:mb-12">
             {/* Customer Images */}
             <div className="flex-shrink-0">
               <img
                 src="/icons/csim.svg"
                 alt="Happy Customers"
-                className="h-12 sm:h-14 md:h-16 w-auto"
+                className="h-14 sm:h-16 md:h-20 w-auto"
               />
             </div>
 
             {/* Stars and Text Column */}
-            <div className="flex flex-col items-center sm:items-start gap-1">
+            <div className="flex flex-col items-center sm:items-start gap-2">
               {/* 5 Stars */}
               <div
                 className="flex items-center gap-1"
@@ -128,12 +128,12 @@ const WorkTogetherSection = () => {
                 {[...Array(5)].map((_, index) => (
                   <svg
                     key={index}
-                    width="18"
-                    height="18"
+                    width="20"
+                    height="20"
                     viewBox="0 0 20 20"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="sm:w-5 sm:h-5"
+                    className="sm:w-6 sm:h-6"
                   >
                     <path
                       d="M10 1L12.09 6.26L18 7.27L14 11.14L15.18 17.02L10 14.77L4.82 17.02L6 11.14L2 7.27L7.91 6.26L10 1Z"
@@ -147,25 +147,37 @@ const WorkTogetherSection = () => {
               </div>
 
               {/* Customer Count */}
-              <span className="font-gilroy-medium text-center sm:text-left text-white text-sm sm:text-base">
+              <span className="font-gilroy-medium text-center sm:text-left text-white text-base sm:text-lg">
                 200+ Happy Customers
               </span>
             </div>
           </div>
 
-          {/* Main Title */}
-          <h2 className="font-bold mb-6 md:mb-8 text-center px-4 text-2xl sm:text-3xl lg:text-4xl text-gray-100 max-w-4xl mx-auto">
+          {/* Main Title - Updated to H1 with proper typography */}
+          <h1 className="font-gilroy-bold text-h1 mb-8 md:mb-12 text-center px-4 text-gray-100 max-w-5xl mx-auto">
             Let's Work Together
-          </h2>
+          </h1>
 
-          {/* Description */}
-          <p className="font-medium text-center mx-auto px-4 text-sm sm:text-base text-white max-w-sm sm:max-w-2xl lg:max-w-3xl">
+          {/* Description - Updated with proper typography */}
+          <p className="font-gilroy-medium text-body text-center mx-auto px-4 text-white max-w-2xl lg:max-w-4xl">
             Whether you're looking to strengthen your bids or redefine your
             business strategy, Visionex Solutions is here to help. Book an
             appointment to discuss how we can support your goals and deliver
             results tailored to your needs.
           </p>
         </div>
+      </div>
+
+      {/* Section Divider - Gradient Line at the bottom */}
+      <div className="absolute bottom-0 left-0 right-0 z-20">
+        <div
+          className="w-full"
+          style={{
+            height: "2px",
+            background:
+              "linear-gradient(90deg, transparent 0%, transparent 30%, #FF6E1F 50%, transparent 70%, transparent 100%)",
+          }}
+        ></div>
       </div>
     </div>
   );
