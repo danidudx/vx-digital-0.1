@@ -140,19 +140,19 @@ const StrategicSolutionsHero = () => {
             {/* Badge */}
             <div className="flex items-center justify-center mb-6 sm:mb-8">
               <div
-                className="flex flex-col items-start p-1 gap-2.5 rounded-full"
+                className="animated-gradient-border rounded-full"
                 style={{
                   width: "203px",
                   height: "50px",
-                  background: "rgba(255, 255, 255, 0.02)",
+                  padding: "0.2px",
                 }}
               >
-                {/* Sub Container */}
+                {/* Inner container with glass effect */}
                 <div
                   className="flex flex-row items-center justify-center gap-4 rounded-full w-full h-full"
                   style={{
                     padding: "9px 16px",
-                    background: "rgba(255, 255, 255, 0.05)",
+                    background: "#5a5b56",
                     border: "1px solid rgba(255, 255, 255, 0.05)",
                     boxShadow: "inset 0px 0px 3px rgba(255, 255, 255, 0.1)",
                   }}
@@ -176,7 +176,6 @@ const StrategicSolutionsHero = () => {
             `,
                       }}
                     />
-
                     {/* Text */}
                     <span
                       className="font-gilroy-semibold text-center flex-shrink-0"
@@ -195,7 +194,7 @@ const StrategicSolutionsHero = () => {
             </div>
 
             {/* Main Heading - Restructured for 2 lines with gradient Success */}
-            <div className="mb-6 sm:mb-8 max-w-4xl mx-auto px-2">
+            <div className="mb-6 sm:mb-8 max-w-6xl mx-auto px-2">
               <h1
                 className="text-white"
                 style={{
@@ -208,7 +207,7 @@ const StrategicSolutionsHero = () => {
                   letterSpacing: "-0.01em",
                 }}
               >
-                Strategic Solutions to Drive Your Business{" "}
+                Strategic Solutions to Drive <br></br>Your Business{" "}
                 <span
                   style={{
                     background:
