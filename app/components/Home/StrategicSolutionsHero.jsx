@@ -139,21 +139,64 @@ const StrategicSolutionsHero = () => {
         <div className="relative z-10 pt-20 sm:pt-32 md:pt-44 pb-12 sm:pb-16 md:pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             {/* Badge */}
+            {/* Badge - Outer Container */}
             <div className="flex items-center justify-center mb-6 sm:mb-8">
               <div
-                className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full"
+                className="flex flex-col items-start p-1 gap-2.5 rounded-full"
                 style={{
-                  background: "rgba(255, 255, 255, 0.1)",
-                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                  width: "203px",
+                  height: "50px",
+                  background: "rgba(255, 255, 255, 0.02)",
                 }}
               >
-                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                <span className="font-medium text-white text-xs sm:text-sm">
-                  Visionex Solutions
-                </span>
+                {/* Sub Container */}
+                <div
+                  className="flex flex-row items-center justify-center gap-4 rounded-full w-full h-full"
+                  style={{
+                    padding: "9px 16px",
+                    background: "rgba(255, 255, 255, 0.05)",
+                    border: "1px solid rgba(255, 255, 255, 0.05)",
+                    boxShadow: "inset 0px 0px 3px rgba(255, 255, 255, 0.1)",
+                  }}
+                >
+                  {/* Content Container - Center everything */}
+                  <div className="flex flex-row items-center justify-center gap-2 w-full">
+                    {/* Logo */}
+                    <img
+                      src="/icons/mouse-logo.svg"
+                      alt="Visionex Solutions"
+                      className="flex-shrink-0"
+                      style={{
+                        width: "28px",
+                        height: "28px",
+                        filter: `
+              drop-shadow(0px 3.407px 2.641px rgba(0, 0, 0, 0.2))
+              drop-shadow(0px 1.704px 1.704px rgba(0, 0, 0, 0.6))
+              drop-shadow(0px 0.852px 0.852px rgba(0, 0, 0, 0.6))
+              drop-shadow(0px 3.321px 25.556px rgba(0, 0, 0, 0.17))
+              drop-shadow(0px 9.488px 60.726px rgba(0, 0, 0, 0.7))
+            `,
+                      }}
+                    />
+
+                    {/* Text */}
+                    <span
+                      className="text-center flex-shrink-0"
+                      style={{
+                        fontFamily: "'Gilroy-SemiBold', sans-serif",
+                        fontWeight: 400,
+                        fontSize: "16px",
+                        lineHeight: "150%",
+                        color: "#D6D8DB",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      Visionex Solutions
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-
             {/* Main Heading */}
             <h1
               className="font-bold text-white mb-6 sm:mb-8 max-w-4xl mx-auto px-2"
