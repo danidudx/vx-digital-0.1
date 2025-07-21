@@ -66,6 +66,22 @@ const WhyChooseVisionexSection = () => {
                 className="w-auto h-auto opacity-60"
               />
             </div>
+            {/* Large Orange Ellipse Gradient via Tailwind/CSS */}
+            <div
+              className="absolute left-0 w-full flex justify-center z-0"
+              style={{
+                top: "100%", // Position it below content
+                transform: "translateY(-120%)", // Adjust vertical alignment
+              }}
+            >
+              <div
+                className="w-[800px] h-[400px] rounded-full opacity-30 blur-3xl"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at center, #FF6E1F 0%, transparent 70%)",
+                }}
+              />
+            </div>
 
             {/* Features List */}
             <div className="space-y-0 pt-4 relative">
