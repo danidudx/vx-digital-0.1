@@ -191,7 +191,7 @@ const OurEffortHeroSection = () => {
               .relative.py-12 {
                 padding-top: 4rem !important;
                 padding-bottom: 2rem !important;
-                min-height: 100vh !important;
+              
               }
               
               .grid {
