@@ -209,12 +209,12 @@ const BusinessThriveSection = () => {
                   style={{
                     left: "50%",
                     top: "50%",
-                    width: "200px",
-                    height: "200px",
+                    width: "300px",
+                    height: "300px",
                     background:
-                      "radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(255, 200, 150, 0.15) 30%, rgba(255, 150, 100, 0.12) 50%, rgba(255, 110, 31, 0.08) 70%, transparent 90%)",
-                    borderRadius: "50%",
-                    filter: "blur(20px)",
+                      "linear-gradient(45deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 220, 180, 0.15) 25%, rgba(255, 180, 120, 0.12) 50%, rgba(255, 140, 80, 0.1) 75%, rgba(255, 110, 31, 0.08) 100%)",
+                    borderRadius: "63% 37% 54% 46% / 55% 48% 52% 45%",
+                    filter: "blur(40px)",
                     pointerEvents: "none",
                   }}
                 ></div>
@@ -319,12 +319,12 @@ const BusinessThriveSection = () => {
                   style={{
                     left: "50%",
                     top: "50%",
-                    width: "200px",
-                    height: "200px",
+                    width: "300px",
+                    height: "300px",
                     background:
-                      "radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(255, 200, 150, 0.15) 30%, rgba(255, 150, 100, 0.12) 50%, rgba(255, 110, 31, 0.08) 70%, transparent 90%)",
-                    borderRadius: "50%",
-                    filter: "blur(20px)",
+                      "linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 220, 180, 0.15) 25%, rgba(255, 180, 120, 0.12) 50%, rgba(255, 140, 80, 0.1) 75%, rgba(255, 110, 31, 0.08) 100%)",
+                    borderRadius: "58% 42% 49% 51% / 61% 44% 56% 39%",
+                    filter: "blur(40px)",
                     pointerEvents: "none",
                   }}
                 ></div>
@@ -420,12 +420,12 @@ const BusinessThriveSection = () => {
                   style={{
                     left: "50%",
                     top: "50%",
-                    width: "250px",
-                    height: "150px",
+                    width: "350px",
+                    height: "200px",
                     background:
-                      "radial-gradient(ellipse, rgba(255, 255, 255, 0.18) 0%, rgba(255, 200, 150, 0.15) 30%, rgba(255, 150, 100, 0.12) 50%, rgba(255, 110, 31, 0.08) 70%, transparent 90%)",
-                    borderRadius: "50%",
-                    filter: "blur(25px)",
+                      "linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 220, 180, 0.15) 25%, rgba(255, 180, 120, 0.12) 50%, rgba(255, 140, 80, 0.1) 75%, rgba(255, 110, 31, 0.08) 100%)",
+                    borderRadius: "71% 29% 35% 65% / 47% 58% 42% 53%",
+                    filter: "blur(45px)",
                     pointerEvents: "none",
                   }}
                 ></div>
@@ -533,12 +533,12 @@ const BusinessThriveSection = () => {
                   style={{
                     left: "50%",
                     top: "50%",
-                    width: "200px",
-                    height: "200px",
+                    width: "300px",
+                    height: "300px",
                     background:
-                      "radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(255, 200, 150, 0.15) 30%, rgba(255, 150, 100, 0.12) 50%, rgba(255, 110, 31, 0.08) 70%, transparent 90%)",
-                    borderRadius: "50%",
-                    filter: "blur(20px)",
+                      "linear-gradient(60deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 220, 180, 0.15) 25%, rgba(255, 180, 120, 0.12) 50%, rgba(255, 140, 80, 0.1) 75%, rgba(255, 110, 31, 0.08) 100%)",
+                    borderRadius: "67% 33% 41% 59% / 52% 68% 32% 48%",
+                    filter: "blur(40px)",
                     pointerEvents: "none",
                   }}
                 ></div>
@@ -653,12 +653,12 @@ const BusinessThriveSection = () => {
                   style={{
                     left: "50%",
                     top: "50%",
-                    width: "200px",
-                    height: "200px",
+                    width: "300px",
+                    height: "300px",
                     background:
-                      "radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(255, 200, 150, 0.15) 30%, rgba(255, 150, 100, 0.12) 50%, rgba(255, 110, 31, 0.08) 70%, transparent 90%)",
-                    borderRadius: "50%",
-                    filter: "blur(20px)",
+                      "linear-gradient(120deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 220, 180, 0.15) 25%, rgba(255, 180, 120, 0.12) 50%, rgba(255, 140, 80, 0.1) 75%, rgba(255, 110, 31, 0.08) 100%)",
+                    borderRadius: "74% 26% 38% 62% / 59% 43% 57% 41%",
+                    filter: "blur(40px)",
                     pointerEvents: "none",
                   }}
                 ></div>
@@ -754,12 +754,12 @@ const BusinessThriveSection = () => {
                   style={{
                     left: "50%",
                     top: "50%",
-                    width: "250px",
-                    height: "150px",
+                    width: "350px",
+                    height: "200px",
                     background:
-                      "radial-gradient(ellipse, rgba(255, 255, 255, 0.18) 0%, rgba(255, 200, 150, 0.15) 30%, rgba(255, 150, 100, 0.12) 50%, rgba(255, 110, 31, 0.08) 70%, transparent 90%)",
-                    borderRadius: "50%",
-                    filter: "blur(25px)",
+                      "linear-gradient(45deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 220, 180, 0.15) 25%, rgba(255, 180, 120, 0.12) 50%, rgba(255, 140, 80, 0.1) 75%, rgba(255, 110, 31, 0.08) 100%)",
+                    borderRadius: "66% 34% 72% 28% / 51% 37% 63% 49%",
+                    filter: "blur(45px)",
                     pointerEvents: "none",
                   }}
                 ></div>
