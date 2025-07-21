@@ -77,8 +77,8 @@ const WhoWeAreSection = () => {
                   lineHeight: "140%",
                 }}
               >
-                Led by Hashan Senarathna, a seasoned professional with an
-                impressive background in consultancy and strategy, Visionex
+                Led by <b>Hashan Senarathna</b> , a seasoned professional with
+                an impressive background in consultancy and strategy, Visionex
                 Solutions is committed to building long-lasting partnerships
               </p>
             </div>
