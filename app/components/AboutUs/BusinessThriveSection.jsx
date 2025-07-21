@@ -178,6 +178,23 @@ const BusinessThriveSection = () => {
                     Client Portfolios
                   </span>
                 </div>
+
+                {/* Inner glow effect */}
+                <div
+                  className="absolute"
+                  style={{
+                    left: "50%",
+                    top: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: "200px",
+                    height: "200px",
+                    background:
+                      "radial-gradient(circle, rgba(217, 217, 217, 0.2) 0%, rgba(217, 217, 217, 0.1) 30%, rgba(217, 217, 217, 0.05) 60%, transparent 80%)",
+                    borderRadius: "50%",
+                    filter: "blur(20px)",
+                    pointerEvents: "none",
+                  }}
+                ></div>
               </div>
             </div>
 
@@ -272,6 +289,23 @@ const BusinessThriveSection = () => {
                     Followers Base
                   </span>
                 </div>
+
+                {/* Inner glow effect */}
+                <div
+                  className="absolute"
+                  style={{
+                    left: "50%",
+                    top: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: "200px",
+                    height: "200px",
+                    background:
+                      "radial-gradient(circle, rgba(217, 217, 217, 0.2) 0%, rgba(217, 217, 217, 0.1) 30%, rgba(217, 217, 217, 0.05) 60%, transparent 80%)",
+                    borderRadius: "50%",
+                    filter: "blur(20px)",
+                    pointerEvents: "none",
+                  }}
+                ></div>
               </div>
             </div>
 
@@ -357,6 +391,23 @@ const BusinessThriveSection = () => {
                     />
                   </svg>
                 </div>
+
+                {/* Inner glow effect */}
+                <div
+                  className="absolute"
+                  style={{
+                    left: "50%",
+                    top: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: "250px",
+                    height: "150px",
+                    background:
+                      "radial-gradient(ellipse, rgba(217, 217, 217, 0.2) 0%, rgba(217, 217, 217, 0.1) 30%, rgba(217, 217, 217, 0.05) 60%, transparent 80%)",
+                    borderRadius: "50%",
+                    filter: "blur(25px)",
+                    pointerEvents: "none",
+                  }}
+                ></div>
               </div>
             </div>
           </div>
@@ -422,7 +473,7 @@ const BusinessThriveSection = () => {
                       color: "#F0F0F0",
                     }}
                   >
-                    10+
+                    10
                   </span>
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                     <path
@@ -454,6 +505,23 @@ const BusinessThriveSection = () => {
                     Client Portfolios
                   </span>
                 </div>
+
+                {/* Inner glow effect */}
+                {/* <div
+                  className="absolute"
+                  style={{
+                    left: "50%",
+                    top: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: "200px",
+                    height: "200px",
+                    background:
+                      "radial-gradient(circle, rgba(217, 217, 217, 0.2) 0%, rgba(217, 217, 217, 0.1) 30%, rgba(217, 217, 217, 0.05) 60%, transparent 80%)",
+                    borderRadius: "50%",
+                    filter: "blur(20px)",
+                    pointerEvents: "none",
+                  }}
+                ></div> */}
               </div>
             </div>
 
@@ -558,6 +626,23 @@ const BusinessThriveSection = () => {
                     Followers Base
                   </span>
                 </div>
+
+                {/* Inner glow effect */}
+                <div
+                  className="absolute"
+                  style={{
+                    left: "50%",
+                    top: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: "200px",
+                    height: "200px",
+                    background:
+                      "radial-gradient(circle, rgba(217, 217, 217, 0.2) 0%, rgba(217, 217, 217, 0.1) 30%, rgba(217, 217, 217, 0.05) 60%, transparent 80%)",
+                    borderRadius: "50%",
+                    filter: "blur(20px)",
+                    pointerEvents: "none",
+                  }}
+                ></div>
               </div>
             </div>
 
@@ -644,17 +729,20 @@ const BusinessThriveSection = () => {
                   </svg>
                 </div>
 
-                {/* Orange blur effect */}
+                {/* Inner glow effect */}
                 <div
                   className="absolute"
                   style={{
-                    right: "-20%",
-                    top: "12%",
-                    width: "60px",
-                    height: "60px",
-                    background: "rgba(255, 110, 31, 0.28)",
-                    filter: "blur(100px)",
-                    transform: "rotate(25.86deg)",
+                    left: "50%",
+                    top: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: "250px",
+                    height: "150px",
+                    background:
+                      "radial-gradient(ellipse, rgba(217, 217, 217, 0.2) 0%, rgba(217, 217, 217, 0.1) 30%, rgba(217, 217, 217, 0.05) 60%, transparent 80%)",
+                    borderRadius: "50%",
+                    filter: "blur(25px)",
+                    pointerEvents: "none",
                   }}
                 ></div>
               </div>
