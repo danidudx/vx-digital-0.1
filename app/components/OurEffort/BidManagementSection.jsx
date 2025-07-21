@@ -1,10 +1,26 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const BidManagementSection = () => {
   const sectionRef = useRef(null);
   const stepsContainerRef = useRef(null);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth >= 1024); // lg breakpoint
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isDesktop) return; // Only run animations on desktop
+
     // Import GSAP
     const script = document.createElement("script");
     script.src =
@@ -27,7 +43,7 @@ const BidManagementSection = () => {
         window.ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       }
     };
-  }, []);
+  }, [isDesktop]);
 
   const initAnimations = () => {
     const { gsap, ScrollTrigger } = window;
@@ -113,7 +129,7 @@ const BidManagementSection = () => {
 
   const renderStepCard = (step, index) => (
     <div
-      data-step={index}
+      data-step={isDesktop ? index : undefined}
       className="flex flex-col lg:flex-row items-start lg:items-start"
       style={{ gap: "clamp(20px, 4vw, 38px)" }}
     >
@@ -336,7 +352,10 @@ const BidManagementSection = () => {
 
         {/* Process Steps */}
         <div className="flex justify-center px-4">
-          <div ref={stepsContainerRef}>
+          <div
+            ref={stepsContainerRef}
+            className={isDesktop ? "" : "space-y-12"}
+          >
             {steps.map((step, index) => (
               <div key={index}>{renderStepCard(step, index)}</div>
             ))}
