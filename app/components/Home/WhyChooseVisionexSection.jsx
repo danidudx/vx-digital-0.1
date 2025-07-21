@@ -127,7 +127,8 @@ const WhyChooseVisionexSection = () => {
           </div>
 
           {/* Right Column - Image with Enhanced Glass Border */}
-          <div className="relative flex justify-center lg:justify-end">
+          {/* Right Column - Image with Enhanced Glass Border */}
+          <div className="relative flex justify-center lg:justify-end h-full">
             {/* Small Ellipse Gradient - On top of images */}
             <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-25">
               <img
@@ -138,65 +139,46 @@ const WhyChooseVisionexSection = () => {
             </div>
 
             {/* Enhanced Glass Border Container */}
+            {/* Enhanced Glass Border Container */}
             <div
-              className="relative overflow-hidden z-20"
+              className="relative overflow-hidden z-20 w-full max-w-[32rem] h-full"
               style={{
-                width: "100%",
-                maxWidth: "32rem", // max-w-lg equivalent
-                height: "400px", // Fixed height for train animation
-
+                aspectRatio: "529 / 492", // modern way
                 backdropFilter: "blur(10px)",
                 border: "20px solid rgba(255, 255, 255, 0.04)",
                 borderRadius: "40px",
                 boxShadow: `
-                  0 20px 60px 0 rgba(0, 0, 0, 0.6),
-                  inset 0 4px 8px rgba(255, 255, 255, 0.15),
-                  inset 0 -2px 4px rgba(255, 255, 255, 0.05),
-                  0 0 0 1px rgba(255, 255, 255, 0.1)
-                `,
-                position: "relative",
+      0 20px 60px 0 rgba(0, 0, 0, 0.6),
+      inset 0 4px 8px rgba(255, 255, 255, 0.15),
+      inset 0 -2px 4px rgba(255, 255, 255, 0.05),
+      0 0 0 1px rgba(255, 255, 255, 0.1)
+    `,
               }}
             >
-              {/* Additional inner glow for glass effect */}
-              <div
-                className="absolute inset-0 rounded-3xl"
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.05) 100%)",
-                  pointerEvents: "none",
-                }}
-              />
-
-              {/* Train Container - All images in a row */}
-              <div
-                className="flex transition-transform duration-1000 ease-in-out relative z-10"
-                style={{
-                  width: `${(features.length - 1) * 100}%`, // Only first 3 images
-                  height: "100%",
-                  transform: `translateX(-${
-                    activeIndex * (100 / (features.length - 1))
-                  }%)`,
-                }}
-              >
-                {/* Only render first 3 images */}
-                {features.slice(0, 3).map((_, index) => (
-                  <div
-                    key={index}
-                    className="flex-shrink-0 w-full h-full flex items-center justify-center"
-                    style={{
-                      width: `${100 / (features.length - 1)}%`,
-                    }}
-                  >
-                    <img
-                      src={`/banners/features/${index + 1}.svg`}
-                      alt={`Feature ${index + 1}`}
-                      className="w-full h-full object-cover"
-                      style={{
-                        borderRadius: "20px",
-                      }}
-                    />
-                  </div>
-                ))}
+              {/* Aspect ratio fallback for older browsers */}
+              <div className="absolute top-0 left-0 w-full h-full">
+                {/* Train Container */}
+                <div
+                  className="flex transition-transform duration-1000 ease-in-out relative z-10 w-full h-full"
+                  style={{
+                    transform: `translateX(-${
+                      activeIndex * (100 / (features.length - 1))
+                    }%)`,
+                  }}
+                >
+                  {features.slice(0, 3).map((_, index) => (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 w-full h-full flex items-center justify-center"
+                    >
+                      <img
+                        src={`/banners/features/${index + 1}.svg`}
+                        alt={`Feature ${index + 1}`}
+                        className="w-full h-full object-cover rounded-[20px]"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
