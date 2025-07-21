@@ -1,12 +1,12 @@
 const BusinessThriveSection = () => {
   return (
     <div
-      className="relative py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32"
+      className="relative overflow-visible pt-[180px] sm:pt-[220px] md:pt-[260px] lg:pt-[300px] xl:pt-[360px] pb-12 sm:pb-16 md:pb-20 lg:pb-24 xl:pb-32"
       style={{
         backgroundColor: "#09090D",
-        backgroundImage: 'url("/banners/bg3.svg")',
+        backgroundImage: 'url("/banners/bn44.svg")',
         backgroundSize: "contain",
-        backgroundPosition: "top",
+        backgroundPosition: "center top",
         backgroundRepeat: "no-repeat",
       }}
     >
@@ -33,46 +33,42 @@ const BusinessThriveSection = () => {
           animation: organicMove 6s ease-in-out infinite;
         }
       `}</style>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header with badge */}
         <div className="text-center mb-12 sm:mb-16">
           {/* Our Mission Badge */}
-          <div
-            className="inline-flex items-center justify-center mb-6 sm:mb-8"
-            style={{
-              width: "125px",
-              height: "50px",
-              background: "rgba(255, 255, 255, 0.02)",
-              borderRadius: "100px",
-              padding: "4px",
-            }}
-          >
-            {/* Sub Container */}
+          <div className="flex items-center justify-center mb-6 sm:mb-8">
             <div
-              className="flex items-center justify-center"
+              className="animated-gradient-border rounded-full"
               style={{
-                width: "117px",
-                height: "42px",
-                background: "rgba(255, 255, 255, 0.05)",
-                border: "1px solid rgba(255, 255, 255, 0.05)",
-                boxShadow: "inset 0px 0px 3px rgba(255, 255, 255, 0.1)",
-                borderRadius: "100px",
-                padding: "9px 16px",
+                width: "125px",
+                height: "50px",
+                padding: "0.2px",
               }}
             >
-              {/* Text */}
-              <span
-                className="font-gilroy-semibold text-center"
+              {/* Inner container with glass effect */}
+              <div
+                className="flex items-center justify-center rounded-full w-full h-full"
                 style={{
-                  fontSize: "16px",
-                  lineHeight: "150%",
-                  color: "#D6D8DB",
-                  whiteSpace: "nowrap",
+                  padding: "9px 16px",
+                  background: "#1a1a1e",
+                  border: "1px solid rgba(255, 255, 255, 0.05)",
+                  boxShadow: "inset 0px 0px 3px rgba(255, 255, 255, 0.1)",
                 }}
               >
-                Our Mission
-              </span>
+                {/* Text */}
+                <span
+                  className="font-gilroy-semibold text-center"
+                  style={{
+                    fontSize: "16px",
+                    lineHeight: "150%",
+                    color: "#D6D8DB",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  Our Mission
+                </span>
+              </div>
             </div>
           </div>
 

@@ -10,12 +10,115 @@ const HeroSection = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
+      {/* Animated Light Rays - Layer 1 */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: 'url("/layers/oureffort.svg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.3,
+          animation: "lightRaysMove 15s ease-in-out infinite",
+          filter: "sepia(0.3) saturate(0.7) hue-rotate(-10deg)",
+          width: "100%",
+          height: "100%",
+          minHeight: "100%",
+        }}
+      />
+
+      {/* Additional light rays for layered effect - Layer 2 */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: 'url("/layers/oureffort.svg")',
+          backgroundSize: "120%",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.15,
+          animation: "lightRaysMove 20s ease-in-out infinite reverse",
+          filter: "sepia(0.2) saturate(0.6) hue-rotate(-15deg)",
+          width: "100%",
+          height: "100%",
+          minHeight: "100%",
+        }}
+      />
+
+      {/* CSS Keyframes for Animation */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          @keyframes lightRaysMove {
+            0% {
+              transform: translateX(-100px) scale(1);
+              opacity: 0.3;
+            }
+            25% {
+              transform: translateX(-50px) scale(1.05);
+              opacity: 0.4;
+            }
+            50% {
+              transform: translateX(0px) scale(1.1);
+              opacity: 0.5;
+            }
+            75% {
+              transform: translateX(50px) scale(1.05);
+              opacity: 0.4;
+            }
+            100% {
+              transform: translateX(100px) scale(1);
+              opacity: 0.3;
+            }
+          }
+
+          /* Ensure backgrounds always cover full height */
+          .absolute.inset-0 {
+            position: absolute !important;
+            top: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+          }
+
+          /* Reduce animation intensity on mobile */
+          @media (max-width: 480px) {
+            @keyframes lightRaysMove {
+              0%, 100% {
+                transform: translateX(-20px) scale(1);
+                opacity: 0.2;
+              }
+              50% {
+                transform: translateX(20px) scale(1.02);
+                opacity: 0.3;
+              }
+            }
+          }
+
+          /* Accessibility: Reduce motion for users who prefer it */
+          @media (prefers-reduced-motion: reduce) {
+            .absolute.z-0 {
+              animation: none !important;
+            }
+          }
+
+          /* High DPI displays */
+          @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+            .absolute.z-0 {
+              background-size: cover !important;
+            }
+          }
+        `,
+        }}
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full">
         {/* Header with About Us Badge */}
         <div className="pt-24 sm:pt-32 md:pt-40 lg:pt-48 pb-8">
           <div className="flex items-center justify-center mb-6 sm:mb-8">
             <div
-              className="animated-gradient-border rounded-full"
+              className="rounded-full"
               style={{
                 width: "203px",
                 height: "50px",
