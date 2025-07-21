@@ -53,7 +53,6 @@ const HalfCircleAnimation = ({
         </defs>
 
         {/* Static base circle (visible base outline) */}
-        {/* Static base circle - reduce opacity further */}
         <path
           d={`M ${strokeWidth / 2 + radius * 0.3} ${
             height - strokeWidth / 2
@@ -61,7 +60,7 @@ const HalfCircleAnimation = ({
             width - strokeWidth / 2 - radius * 0.3
           } ${height - strokeWidth / 2}`}
           fill="none"
-          stroke="rgba(255, 255, 255, 0.05)" // Change from 0.2 to 0.05
+          stroke="rgba(255, 255, 255, 0.05)"
           strokeWidth={strokeWidth}
         />
 
@@ -120,7 +119,7 @@ const StrategicSolutionsHero = () => {
     <>
       <div className="mb-6 sm:mb-8 absolute -top-180 z-50 left-0 right-0 pointer-events-none">
         <HalfCircleAnimation
-          strokeWidth={1} // Change this from 4 to 1
+          strokeWidth={1}
           gradientLength={150}
           animationDuration={5}
         />
@@ -139,7 +138,6 @@ const StrategicSolutionsHero = () => {
         <div className="relative z-10 pt-20 sm:pt-32 md:pt-44 pb-12 sm:pb-16 md:pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             {/* Badge */}
-            {/* Badge - Outer Container */}
             <div className="flex items-center justify-center mb-6 sm:mb-8">
               <div
                 className="flex flex-col items-start p-1 gap-2.5 rounded-full"
@@ -181,10 +179,8 @@ const StrategicSolutionsHero = () => {
 
                     {/* Text */}
                     <span
-                      className="text-center flex-shrink-0"
+                      className="font-gilroy-semibold text-center flex-shrink-0"
                       style={{
-                        fontFamily: "'Gilroy-SemiBold', sans-serif",
-                        fontWeight: 400,
                         fontSize: "16px",
                         lineHeight: "150%",
                         color: "#D6D8DB",
@@ -197,24 +193,42 @@ const StrategicSolutionsHero = () => {
                 </div>
               </div>
             </div>
-            {/* Main Heading */}
-            <h1
-              className="font-bold text-white mb-6 sm:mb-8 max-w-4xl mx-auto px-2"
-              style={{
-                fontSize: "clamp(32px, 8vw, 72px)",
-                lineHeight: "127%",
-                letterSpacing: "-1%",
-              }}
-            >
-              Strategic Solutions to Drive Your Business Success
-            </h1>
 
-            {/* Half Circle Animation positioned near H1 */}
+            {/* Main Heading - Restructured for 2 lines with gradient Success */}
+            <div className="mb-6 sm:mb-8 max-w-4xl mx-auto px-2">
+              <h1
+                className="text-white"
+                style={{
+                  fontFamily: "Gilroy-Bold",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  fontSize: "clamp(32px, 8vw, 72px)",
+                  lineHeight: "127%",
+                  textAlign: "center",
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                Strategic Solutions to Drive Your Business{" "}
+                <span
+                  style={{
+                    background:
+                      "linear-gradient(92.73deg, #FFFFFF 2.27%, #FF6E1F 198.31%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  Success
+                </span>
+              </h1>
+            </div>
 
             {/* Description */}
             <p
-              className="font-medium text-white mb-8 sm:mb-12 max-w-3xl mx-auto px-2"
+              className="text-white mb-8 sm:mb-12 max-w-3xl mx-auto px-2"
               style={{
+                fontFamily: "Gilroy-Medium",
+                fontWeight: 500,
                 fontSize: "clamp(14px, 4vw, 16px)",
                 lineHeight: "140%",
                 opacity: "0.9",
@@ -230,7 +244,7 @@ const StrategicSolutionsHero = () => {
             {/* CTA Button */}
             <div className="flex justify-center mb-12 sm:mb-16 md:mb-20">
               <button
-                className="font-semibold transition-all duration-300 hover:bg-gray-100 hover:scale-105 active:scale-95"
+                className="transition-all duration-300 hover:bg-gray-100 hover:scale-105 active:scale-95"
                 style={{
                   boxSizing: "border-box",
                   width: "clamp(140px, 40vw, 153px)",
@@ -256,11 +270,9 @@ const StrategicSolutionsHero = () => {
                   }}
                 >
                   <span
-                    className="font-semibold"
+                    className="font-gilroy-semibold"
                     style={{
-                      fontStyle: "normal",
-                      fontWeight: "400",
-                      fontSize: "clamp(14px, 4vw, 16px)",
+                      fontSize: "16px",
                       lineHeight: "27px",
                       display: "flex",
                       alignItems: "center",
@@ -354,10 +366,10 @@ const StrategicSolutionsHero = () => {
               <div className="space-y-6 sm:space-y-8 order-1 lg:order-2">
                 {/* Title */}
                 <h2
-                  className="font-bold text-white text-center lg:text-left"
+                  className="font-gilroy-bold text-white text-center lg:text-left mb-6 sm:mb-8"
                   style={{
-                    fontSize: "clamp(28px, 6vw, 47.44px)",
-                    lineHeight: "62.4px",
+                    fontSize: "clamp(28px, 5vw, 47px)",
+                    lineHeight: "1.2",
                     letterSpacing: "-1.2px",
                   }}
                 >
@@ -369,10 +381,23 @@ const StrategicSolutionsHero = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
                   {/* Bid Management */}
                   <div className="space-y-3 text-center sm:text-left">
-                    <h3 className="font-bold text-white text-lg sm:text-xl">
+                    <h3
+                      className="font-gilroy-bold text-white"
+                      style={{
+                        fontSize: "24px",
+                        lineHeight: "30px",
+                      }}
+                    >
                       Bid Management
                     </h3>
-                    <p className="font-medium text-white text-sm opacity-80 leading-relaxed">
+                    <p
+                      className="font-gilroy-medium text-white leading-relaxed"
+                      style={{
+                        fontSize: "14px",
+                        lineHeight: "140%",
+                        opacity: "0.8",
+                      }}
+                    >
                       Interpreting tender requirements to crafting persuasive
                       submissions
                     </p>
@@ -380,10 +405,23 @@ const StrategicSolutionsHero = () => {
 
                   {/* Business Strategy Consulting */}
                   <div className="space-y-3 text-center sm:text-left">
-                    <h3 className="font-bold text-white text-lg sm:text-xl">
+                    <h3
+                      className="font-gilroy-bold text-white"
+                      style={{
+                        fontSize: "24px",
+                        lineHeight: "30px",
+                      }}
+                    >
                       Business Strategy Consulting
                     </h3>
-                    <p className="font-medium text-white text-sm opacity-80 leading-relaxed">
+                    <p
+                      className="font-gilroy-medium text-white leading-relaxed"
+                      style={{
+                        fontSize: "14px",
+                        lineHeight: "140%",
+                        opacity: "0.8",
+                      }}
+                    >
                       Helps companies experiencing stagnation or uncertainty
                       rediscover their edge
                     </p>

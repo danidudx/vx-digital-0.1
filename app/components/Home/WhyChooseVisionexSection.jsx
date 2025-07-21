@@ -126,7 +126,7 @@ const WhyChooseVisionexSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Image with Glass Border */}
+          {/* Right Column - Image with Enhanced Glass Border */}
           <div className="relative flex justify-center lg:justify-end">
             {/* Small Ellipse Gradient - On top of images */}
             <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-25">
@@ -137,26 +137,39 @@ const WhyChooseVisionexSection = () => {
               />
             </div>
 
-            {/* Glass Border Container */}
+            {/* Enhanced Glass Border Container */}
             <div
               className="relative overflow-hidden z-20"
               style={{
                 width: "100%",
                 maxWidth: "32rem", // max-w-lg equivalent
                 height: "400px", // Fixed height for train animation
-                background: "rgba(255, 255, 255, 0.03)",
-                backdropFilter: "blur(25px)",
-                border: "10px solid rgba(255, 255, 255, 0.08)",
-                borderRadius: "32px",
+
+                backdropFilter: "blur(10px)",
+                border: "20px solid rgba(255, 255, 255, 0.04)",
+                borderRadius: "40px",
                 boxShadow: `
-                  0 12px 40px 0 rgba(0, 0, 0, 0.5),
-                  inset 0 2px 4px rgba(255, 255, 255, 0.1)
+                  0 20px 60px 0 rgba(0, 0, 0, 0.6),
+                  inset 0 4px 8px rgba(255, 255, 255, 0.15),
+                  inset 0 -2px 4px rgba(255, 255, 255, 0.05),
+                  0 0 0 1px rgba(255, 255, 255, 0.1)
                 `,
+                position: "relative",
               }}
             >
+              {/* Additional inner glow for glass effect */}
+              <div
+                className="absolute inset-0 rounded-3xl"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.05) 100%)",
+                  pointerEvents: "none",
+                }}
+              />
+
               {/* Train Container - All images in a row */}
               <div
-                className="flex transition-transform duration-1000 ease-in-out"
+                className="flex transition-transform duration-1000 ease-in-out relative z-10"
                 style={{
                   width: `${(features.length - 1) * 100}%`, // Only first 3 images
                   height: "100%",
@@ -179,7 +192,7 @@ const WhyChooseVisionexSection = () => {
                       alt={`Feature ${index + 1}`}
                       className="w-full h-full object-cover"
                       style={{
-                        borderRadius: "24px",
+                        borderRadius: "20px",
                       }}
                     />
                   </div>
