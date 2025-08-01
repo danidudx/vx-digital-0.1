@@ -1,0 +1,170 @@
+/* app/tailwind.css - Complete configuration */
+@import "tailwindcss";
+
+/* Font Face Definitions */
+@font-face {
+  font-family: "Gilroy-Bold";
+  src: url("/fonts/Gilroy-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy-Medium";
+  src: url("/fonts/Gilroy-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy-Regular";
+  src: url("/fonts/Gilroy-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy-ExtraBold";
+  src: url("/fonts/Gilroy-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy-SemiBold";
+  src: url("/fonts/Gilroy-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Theme Configuration */
+@theme {
+  /* Font Families - Fixed to match your class names */
+  --font-family-gilroy-bold: "Gilroy-Bold", "Arial", sans-serif;
+  --font-family-gilroy-medium: "Gilroy-Medium", "Arial", sans-serif;
+  --font-family-gilroy-regular: "Gilroy-Regular", "Arial", sans-serif;
+  --font-family-gilroy-semibold: "Gilroy-SemiBold", "Arial", sans-serif;
+  --font-family-gilroy-extrabold: "Gilroy-ExtraBold", "Arial", sans-serif;
+
+  /* Custom Font Sizes */
+  --font-size-h1: 72px;
+  --line-height-h1: 127%;
+  --font-size-h2: 47.44px;
+  --line-height-h2: 62.4px;
+  --letter-spacing-h2: -1.2px;
+  --font-size-h3: 24px;
+  --line-height-h3: 30.04px;
+  --font-size-body: 16px;
+  --line-height-body: 140%;
+  --font-size-quote: 32px;
+  --line-height-quote: 140%;
+
+  /* Primary Color Palette */
+  --color-primary-50: #fff4ef;
+  --color-primary-100: #ffe8db;
+  --color-primary-500: #ff6e1f;
+  --color-primary-600: #e55a0c;
+  --color-primary-900: #b8460a;
+  --color-primary: #ff6e1f;
+
+  /* Dark Color Palette */
+  --color-dark-50: #f5f5f5;
+  --color-dark-100: #e0e0e0;
+  --color-dark-500: #1e1e1e;
+  --color-dark-900: #0a0a0a;
+  --color-dark: #1e1e1e;
+}
+
+/* Custom Utility Classes for Typography - FIXED */
+@utility text-h1 {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+}
+
+@utility text-h2 {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+  letter-spacing: var(--letter-spacing-h2);
+}
+
+@utility text-h3 {
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+}
+
+@utility text-body {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+@utility text-quote {
+  font-size: var(--font-size-quote);
+  line-height: var(--line-height-quote);
+}
+
+/* Global Styles */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* CSS Properties for Animated Border */
+@property --border-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: "<angle>";
+}
+
+/* Animated Gradient Border Class */
+.animated-gradient-border {
+  background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.02),
+        rgba(255, 255, 255, 0.04) 50%,
+        rgba(255, 255, 255, 0.02)
+      )
+      padding-box,
+    conic-gradient(
+        from var(--border-angle),
+        rgba(255, 255, 255, 0.1) 80%,
+        #ff6e1f 86%,
+        #ffb366 90%,
+        #ff6e1f 94%,
+        rgba(255, 255, 255, 0.1)
+      )
+      border-box;
+  border: 2px solid transparent;
+  animation: border-spin 8s linear infinite;
+}
+
+@keyframes border-spin {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+/* Font Family Classes - Keep these as backup */
+.font-gilroy-bold {
+  font-family: "Gilroy-Bold", "Arial", sans-serif !important;
+}
+
+.font-gilroy-medium {
+  font-family: "Gilroy-Medium", "Arial", sans-serif !important;
+}
+
+.font-gilroy-semibold {
+  font-family: "Gilroy-SemiBold", "Arial", sans-serif !important;
+}
+
+.font-gilroy-regular {
+  font-family: "Gilroy-Regular", "Arial", sans-serif !important;
+}
+
+.font-gilroy-extrabold {
+  font-family: "Gilroy-ExtraBold", "Arial", sans-serif !important;
+}

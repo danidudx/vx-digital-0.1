@@ -1,0 +1,34 @@
+<png width="391" height="562" viewBox="0 0 391 562" fill="none" xmlns="http://www.w3.org/2000/png">
+<rect x="29" y="165" width="335" height="160" rx="20" fill="white" fill-opacity="0.09"/>
+<rect x="17" y="189" width="356" height="160" rx="20" fill="#38383C"/>
+<rect y="224" width="391" height="160" rx="20" fill="#2F2F32" fill-opacity="0.91"/>
+<rect x="0.5" y="224.5" width="390" height="159" rx="19.5" stroke="url(#paint0_linear_359_1443)" stroke-opacity="0.72"/>
+<path d="M86.5 256H40.5C34.1487 256 29 261.149 29 267.5V313.5C29 319.851 34.1487 325 40.5 325H86.5C92.8513 325 98 319.851 98 313.5V267.5C98 261.149 92.8513 256 86.5 256Z" fill="white" fill-opacity="0.09"/>
+<path d="M83.8333 260H43.1667C37.5518 260 33 264.552 33 270.167V310.833C33 316.448 37.5518 321 43.1667 321H83.8333C89.4482 321 94 316.448 94 310.833V270.167C94 264.552 89.4482 260 83.8333 260Z" fill="url(#paint1_linear_359_1443)"/>
+<path d="M63 301.07C63 303.875 61.875 305 59.055 305H51.93C49.125 305 48 303.875 48 301.07V293.945C48 291.125 49.125 290 51.93 290H55.5V293.555C55.5 296.375 56.625 297.5 59.43 297.5H63V301.07Z" fill="white" fill-opacity="0.19"/>
+<path opacity="0.6" d="M70.5 293.555C70.5 296.375 69.375 297.5 66.555 297.5H59.43C56.625 297.5 55.5 296.375 55.5 293.555V286.43C55.5 283.625 56.625 282.5 59.43 282.5H63V286.055C63 288.875 64.125 290 66.93 290H70.5V293.555Z" fill="white"/>
+<path d="M78 286.055C78 288.875 76.875 290 74.055 290H66.93C64.125 290 63 288.875 63 286.055V278.93C63 276.125 64.125 275 66.93 275H74.055C76.875 275 78 276.125 78 278.93V286.055Z" fill="white"/>
+<path d="M326 262H128C121.925 262 117 264.91 117 268.5C117 272.09 121.925 275 128 275H326C332.075 275 337 272.09 337 268.5C337 264.91 332.075 262 326 262Z" fill="white" fill-opacity="0.06"/>
+<path d="M326 281H128C121.925 281 117 283.91 117 287.5C117 291.09 121.925 294 128 294H326C332.075 294 337 291.09 337 287.5C337 283.91 332.075 281 326 281Z" fill="white" fill-opacity="0.06"/>
+<line x1="200.5" y1="383" x2="200.5" y2="562" stroke="white" stroke-dasharray="12 12"/>
+<path d="M197.544 163.204L197.544 133.5L125.544 133.5L125.544 2.2047" stroke="url(#paint2_linear_359_1443)" stroke-dasharray="12 12"/>
+<circle cx="197.5" cy="160.5" r="4.5" fill="url(#paint3_linear_359_1443)"/>
+<defs>
+<linearGradient id="paint0_linear_359_1443" x1="146" y1="418.5" x2="177.5" y2="295.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF6E1F"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_359_1443" x1="25" y1="250.5" x2="99" y2="370.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF6E1F"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+<linearGradient id="paint2_linear_359_1443" x1="209" y1="188" x2="31.5" y2="-37.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint3_linear_359_1443" x1="189.727" y1="156" x2="213.455" y2="176.864" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF6E1F"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+</defs>
+</png>
